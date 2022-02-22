@@ -1,0 +1,26 @@
+languageCode = "en"
+languageName = "English"
+displayName = "EN"
+isoCode = "en"
+weight = 1
+rtl = false
+
+title = "The Axiom"
+logo = "assets/img/logo.png"
+description = "The official blog of @quantum9innovation"
+copyright = "Copy, _right?_ :thinking_face:"
+
+dateFormat = "January 2, 2006"
+
+[author]
+  name = "quantum9innovation (q9i)"
+  image = "assets/img/author.png"
+  headline = "I'm only human"
+  bio = "Software is an art form"
+  links = [
+    { email = "mailto:dev.quantum9innovation@gmail.com" },
+    { dev = "https://dev.to/quantum9innovation" },
+    { github = "https://github.com/quantum9innovation" },
+    { gitlab = "https://gitlab.com/thebluedev" },
+    { medium = "https://q9i.medium.com" },
+  ]
