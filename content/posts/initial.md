@@ -10,5 +10,5 @@ Welcome to the Axiom!
 
 ---
 
-What a great post!\
+What a great post! :tada:\
 This site will serve as the new blog for [@quantum9innovation](https://github.com/quantum9innovation).
