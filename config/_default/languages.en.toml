@@ -8,7 +8,7 @@ rtl = false
 title = "The Axiom"
 logo = "assets/img/logo.png"
 description = "The official blog of @quantum9innovation"
-copyright = "Copy, _right?_ :thinking_face:"
+copyright = "Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
 
 dateFormat = "January 2, 2006"
 

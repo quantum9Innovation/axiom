@@ -1,3 +1,6 @@
 [submodule "themes/congo"]
 	path = themes/congo
 	url = https://github.com/jpanther/congo
+[submodule "layouts/scripts/404"]
+	path = layouts/scripts/404
+	url = https://github.com/coconauts/404-games
