@@ -4,7 +4,7 @@
 
 theme = "congo"
 
-baseURL = "https://quantum9innovation.github.io/"
+baseURL = "https://quantum9innovation.github.io/axiom/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
