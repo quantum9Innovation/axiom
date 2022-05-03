@@ -9,6 +9,11 @@ draft: false
 Welcome to the Axiom!
 
 ---
+{{< katex >}}
 
 What a great post! :tada:\
 This site will serve as the new blog for [@quantum9innovation](https://github.com/quantum9innovation).
+
+It even supports math!\
+Elliptic integral of the second kind:
+$$ 4a\int_0^{\pi/2} \sqrt{1-k^2\sin^2 t} ~ dx $$
