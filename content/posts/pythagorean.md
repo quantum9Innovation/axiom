@@ -8,6 +8,8 @@ categories: ["Number Theory", "Algebraic Geometry", "Trigonometry"]
 tags: ["Fermat's Last Theorem", "Weierstrass substitution", "conic", "rational points", "Pythagorean theorem"]
 ---
 
+<link type='text/css' rel='stylesheet' href='../../assets/css/syntax.css'></style>
+
 {{< lead >}}
 How to find, generate, and visualize every single Pythagorean triple
 {{< /lead >}}
