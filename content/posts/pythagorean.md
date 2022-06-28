@@ -36,9 +36,9 @@ This simple statement is deceptively hard to prove; it took more than three cent
 While mathematically proving that this is true is quite hard, it's relatively simple to see its implications when we study this problem from a visual perspective.
 To do that, we'll need to plot this equation as some kind of curve on the Cartesian plane.
 While we could go ahead and plot this in three dimensions, we can make a clever substitution that will allow us to plot this curve in two dimensions.
-If we divide both sides by $ C^2 $, we get:
+If we divide both sides by $ C^n $, we get:
 
-$$ \left( \frac{A}{C} \right)^2 + \left( \frac{B}{C} \right)^2 = 1 $$
+$$ \left( \frac{A}{C} \right)^n + \left( \frac{B}{C} \right)^n = 1 $$
 
 Now, we notice that both $ \frac{A}{C} $ and $ \frac{B}{C} $ are rational numbers, since both their numerators and denominators are integers.
 This means we can make the substitution:
@@ -52,10 +52,10 @@ $$ x^n + y^n = 1 \space \textnormal{where} \space x, y \in \mathbb{Q} $$
 For now, we'll stick to the cases where $ n > 2 $.
 Graphing the equation for various values of $ n $ reveals two families of similar-looking curves: one where $ n $ is even and one where $ n $ is odd.
 
-{{< alert "github" >}}
+{{< alert >}}
 This graph, like every other in this article, is interactive.
 Drag to translate the graph and scroll or pinch to zoom.
-You can also experiment by dragging any points or sliders.
+Use the slider below to adjust the value of $ n $.
 {{< /alert >}}
 
 <div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
@@ -71,7 +71,6 @@ $$ x^2 + y^2 = 1 $$
 Well, as it turns out, the "Fermat curve" for $ n = 2 $ is not a Fermat curve at all but one of the most familiar geometric objects in all of mathematics: the unit circle.
 Combining this with our knowledge that there are infinitely many Pythagorean triples, we can deduce that there must be infinitely many points on the unit circle with $ x, y \in \mathbb{Q} $.
 We term such a point with rational coordinates a *rational point* on the unit circle.
-In other words, our question is no longer "find all Pythagorean triples" but instead "find all rational points on the unit circle".
 
 Going in the other direction, given a rational point on the unit circle $ (x, y) $, we can rewrite $ x $ and $ y $ as fractions $ \frac{a}{b} $ and $ \frac{c}{d} $, respectively.
 We then have:
@@ -87,16 +86,20 @@ We simply let:
 
 $$ (A, B, C) = (ad, bc, bd) $$
 
+Thus, there is a direct correspondence between rational points on the unit circle and Pythagorean triples.
+Finding one gives us the other.
+In other words, our question is no longer "find all Pythagorean triples" but instead "find all rational points on the unit circle."
+
 ## Rational Points on a Conic
 
 So far, we've reduced the problem of finding all possible Pythagorean triples to finding all rational points on the unit circle.
 If we find a rational point on the unit circle, then we know it corresponds to a unique Pythagorean triple.
 To be fair, this may not seem like much of a reduction: we've reduced a difficult problem to one that at first glance seems even harder: how do you find rational points on a curve? And, as if that wasn't enough, how do you find *every* rational point?
-Just like the previous section, we're going to generalize a bit in the hopes of relating this problem to others and in turn finding a general solution.
+Just like the previous section, we're going to generalize a bit in the hopes of relating this problem to others and in turn finding a pattern that will help reduce this problem to one that can be more easily solved.
 
 Last section we ended by asking how to find every rational point on the unit circle.
-This chapter, we're going to do a bit more; we ask: how do you find every rational point on a *conic* in its most general form?
-First, we have to be clear what we mean by a conic in its most general form.
+This chapter, we're going to do a bit more; we ask: how do you find every rational point on a conic in its most general form?
+First, we have to be clear what we mean by a conic "in its most general form."
 We typically think of conics as being the result of cross sections of a cone at different angles.
 From these cross sections, we get the four standard conics: circles, ellipses, parabolas, and hyperbolas.
 When we graph there figures in the Cartesian plane and account for rotation, they all have an equation of the form:
@@ -115,7 +118,8 @@ For the purposes of our problem, we'll assume that $ \mathcal{C} $ contains some
 In this case, $ \mathcal{O} $ is the point $(-1, 1) $.
 What we're going to do is create a generating function for every other rational point on $ \mathcal{C} $ simply from knowing $ \mathcal{O} $.
 
-One interesting observation that we can make is that if we know what one of the variables, say $ y $, is in terms of a linear function of the other, we can substitute it into the equation to get a quadratic in just one variable.
+One interesting observation that we can make is that if we know what one of the variables, say $ y $, is in terms of some linear function $ \ell $ of the other, we can substitute it into the equation of our conic to get a quadratic in just one variable.
+This roots of this resulting quadratic give us the intersections between the conic $ \mathcal{C} $ and the linear function $ \ell $.
 A nice property of quadratics is that the constant term $ c $ of a quadratic $ a x^2 + b x + c = 0 $ is always a constant multiple of the product of the two roots.
 This follows from the fact that, by the Fundamental Theorem of Algebra, any quadratic can be factored as:
 
@@ -126,7 +130,7 @@ Multiplying out the factored form yields:
 
 $$ a x^2 + b x + c = a x^2 - a(r + s) x + ars $$
 
-Setting the constant terms equal to each other yields:
+Setting the constant terms equal to each other gives:
 
 $$ c = ars $$
 
@@ -139,13 +143,11 @@ To sum up our work so far as it is relevant to solving this problem, we know tha
 And, if that quadratic happens to have one rational root $ x = s $, then its second root $ x = r $ must also be rational.
 Right now, this may seem a bit complicated and useless, but the first step should give us a hint as to what we need to do: write $ y $ as a linear function of $ x $.
 
-A linear function has the form $ y = a x + b $, where we'll assume $ a $ and $ b $ are rational coefficients so the resulting quadratic is rational as well.
-We will refer to such a line as a "rational" line and any conic with rational coefficients as a "rational" conic.
+A linear function has the form $ y = a x + b $, where we'll assume $ a $ and $ b $ are rational coefficients so the resulting quadratic contains solely rational coefficients as well.
+We will refer to such a line as a "rational line" and any conic with rational coefficients as a "rational conic."
 The key to our solution lies in choosing a line such that when this value of $ y $ is substituted into $ \mathcal{C} $, we get a quadratic in $ x $ with at least one rational root, thereby implying the existence of another rational root, giving us another point on the conic with a rational $ x $-coordinate.
 
-Another, much simpler way of understanding this that makes the solution process immensely easier is to consider the intersection of the line $ y = a x + b $ and the conic $ \mathcal{C} $.
-The $ x $-coordinate of each intersection can be found by substituting $ y = a x + b $ into the equation for $ \mathcal{C} $.
-This substitution yields the quadratic with rational coefficients that we talked about earlier, and each *intersection* of the line and the conic is a root of this quadratic.
+As hinted at before, what we're essentially doing when we substitute a linear equation $ \ell $ for $ y $ in $ \mathcal{C} $ is solving for the intersection between this line and the conic.
 In other words, the problem of finding a linear function such that its substitution into $ \mathcal{C} $ gives a quadratic in $ x $ with at least one rational root is equivalent to finding a line which intersects $ \mathcal{C} $ at some point with a rational $ x $-coordinate.
 
 But we have a point just like that!
@@ -156,6 +158,13 @@ But, if our line is also rational, then we can find the corresponding $ y $-coor
 Therefore, our second intersection point has a rational $ x $-coordinate and a rational $ y $-coordinate, making it a rational point on $ \mathcal{C} $.
 
 Here's an example:
+
+{{< alert >}}
+Points with a translucent circle around them can be moved!
+Move the blue point on the $ y $-axis anywhere across the screen to generate a new rational point on the ellipse.
+{{< /alert >}}
+
+<br>
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
   <iframe id="example" src="../interactive/pythagorean/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -173,7 +182,14 @@ Rational parametrizations parameterize a curve $ \mathcal{C} $ as a function of 
 At this point, we could very well go ahead and parametrize $ \mathcal{C} $ in terms of the slope of our line, though a more geometrically pleasing way to think about this involves drawing a second rational line.
 Accounting for all slopes just means we need to pick a second point somewhere on the Cartesian plane that constantly moves so as to change the slope of our line continuously.
 We already know that the slope between two rational points is rational, so we just need to find a set of rational points on the plane that satisfy this condition of a continuously changing slope.
-A rational line provides the perfect answer; since two rational lines with distinct slopes intersect at one point, each point on the second rational line corresponds to a unique slope for the first (intersecting) rational line.
+
+A rational line provides the perfect answer.
+By moving through every point on a rational line, we change the slope of the line intersecting the conic.
+That's because two lines with distinct slopes intersect at one and only one point.
+In our example, one of the lines (the line from which we are choosing the set of points) never changes slope.
+Thus, in order for the intersection point to change, the line intersecting the conic must change slope.
+Traversing through all possible points on a rational line generates intersecting lines with all possible slopes (with one exception, as we'll see later).
+A geometric diagram will make this intuitively clearer.
 
 Our algorithm is as follows:
 
@@ -192,7 +208,7 @@ Our algorithm is as follows:
 In effect, we are "projecting" the conic $ \mathcal{C} $ onto $ f(t) $, which in turn forms a unique mapping between points on $ \mathcal{C} $ and points on $ f(t) $, which we exploit to rationally parametrize any conic.
 One final note that should be made before we move on to circles is that this method does not find *every* rational point; in particular, it misses exactly one point, the most obvious of all: $ \mathcal{O} $.
 We introduce this more as a technicality than a severe issue as it presents no further problems later in our quest to find all Pythagorean triples.
-If you are curious as to whether it is possible to include $ \mathcal{O} $ in our parametrization, you can rest assured that it is indeed possible using the [projective plane](https://en.wikipedia.org/wiki/Projective_plane), where $ \mathcal{O} $ corresponds to $ t = \infty $, though that is a subtlety that we will ignore.
+If you are curious as to whether it is possible to include $ \mathcal{O} $ in our parametrization, rest assured that it is indeed possible using the [projective plane](https://en.wikipedia.org/wiki/Projective_plane), where $ \mathcal{O} $ corresponds to $ t = \infty $, though that is a subtlety that we will ignore.
 
 ## The Weierstrass Substitution
 
@@ -242,7 +258,7 @@ Combining these two equalities yields the rational parametrization of the unit c
 
 $$ (x, y) = \left( \frac{1 - t^2}{1 + t^2}, \frac{2t}{1 + t^2} \right) $$
 
-We see immediately that for any $ t \in \mathbb{Q} $, we must get a corresponding rational point on the unit circle, as generating this point consists only of squaring, multiplication, addition, and subtraction, which, when applied to rational numbers, always yield a rational number as an output.
+We see immediately that for any $ t \in \mathbb{Q} $, we must get a corresponding rational point on the unit circle, as generating this point consists only of multiplication, division, addition, and subtraction, which, when applied to rational numbers, always yield a rational number as an output.
 Note that this is *not* the case if we use the familiar parametric equation of a circle $ (\cos \theta, \sin \theta) $; even if we have $ \theta \in \mathbb{Q} $, we cannot guarantee that the output of either $ \cos \theta $ or $ \sin \theta $ will yield a rational output (try expressing the point $ (\cos 1, \sin 1) $ in terms of rational coordinates).
 
 While our result is obviously important algebraically, it can also be quite powerful to look at it from a geometric perspective.
@@ -255,9 +271,12 @@ While our result is obviously important algebraically, it can also be quite powe
   Points on the unit circle are projected onto the $ y $ axis, with points in the first and fourth quadrants being mapped to points inside the unit circle (where $ -1 \leq t \leq 1 $) and points in the second and third quadrants being mapped to points outside the unit circle (where $ |t| > 1 $).
 </p>
 
+What we're going to do now is not directly related to our problem of finding all possible Pythagorean triples, so feel free to skip over to the next section.
+However, the process which we're about to explore is so important that it is in many ways impossible to skip now that we've covered the rational parameterization of the unit circle.
+
 Earlier it was hinted at that of the four rational points that we could have chosen as $ \mathcal{O} $, there was a reason why $ (-1, 0) $ was chosen in particular.
-That reason, as we can see now, is that $ t $ becomes the slope of the line $ \ell $.
-What we're going to do now is equate the two parametrizations of the unit circle: the common $ (\cos \theta, \sin \theta) $ and rational parametrization in terms of $ t $.
+That reason, as we can see now, is that $ t $ becomes the slope of the line $ \ell $, which makes the math we're about to do much simpler.
+We're going to explore the answer to a very obvious next question which is: how do we relate the rational parameterization of the circle to its traditional parameterization as $ (\cos \theta, \sin \theta) $?
 More specifically, we're going to ask the question:
 
 > Given a point in the form $ (\cos \theta, \sin \theta) $ for some angle $ \theta $, what is the corresponding value of $ t $ that will generate that point in our rational parameterization?
@@ -310,8 +329,8 @@ $$ \frac{\cos^{4} x -\sin^{4} x}{\cos^{2}x} = 1-\tan^{2}x $$
 
 Your first instinct is probably to try and factor to get rid of the annoying $ \sin x $ term and then hope everything simplifies to yield a $ \tan^{2}x $ term somehow.
 But what if *all three* trigonometric functions could be expressed in terms of a single variable $ t $?
-Then the problem simply becomes algebra: prove the left side minus the right side equals zero.
-Here's what it would look like if we expressed everything in terms of $ t $, made some minor simplifications to cancel similar terms in the numerators and denominators, and combined fractions:
+Then the problem simply becomes algebra: simplify the rational functions of $ t $ on both sides and show they're equivalent.
+Here's what it would look like if we expressed everything in terms of $ t $ using the Weierstrass substitution and then wrote the left and right side as rational functions:
 
 $$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1-t^{2}\right)^{2}\left(1+t^{2}\right)^{2}} = 1-\frac{\left(2t\right)^{2}}{\left(1-t^{2}\right)^{2}} $$
 
@@ -349,17 +368,19 @@ Recall from our definition of $ t $ that we have:
 
 $$ t = \tan x/2 \Rightarrow x = 2 \arctan t $$
 
-Thus, we can rewrite the above integral as:
+This is essentially the Weierstrass substitution in reverse: it gives us a way to write the rational parameterization in terms of the traditional $ (\cos \theta, \sin \theta) $ parameterization of the unit circle.
+Using this to rewrite our integral gives:
 
 $$ \int \frac{1 + t^2}{2t} \space d(2 \arctan t) = \int \frac{1 + t^2}{2t} \space \frac{d}{dt}(2 \arctan t) \space dt $$
 
 Multiplying by the derivative of $ 2 \arctan t $ yields a rational expression in terms of $ t $ that we can integrate:
 
-$$ \int \frac{\cancel{1 + t^2}}{\cancel{2}t} \space \frac{\cancel{2}}{\cancel{1+t^{2}}} \space dt  = \int \frac{dt}{t} $$
+$$ \int \frac{\cancel{1 + t^2}}{2t} \cdot \frac{2}{\cancel{1+t^{2}}} \space dt  = $$
+$$ \int \frac{\cancel{2}}{\cancel{2}t} \space dt = \int \frac{dt}{t} $$
 
 Aha! We've reduced the problem to a common integral. We can now integrate and substitute $ t = \tan x/2 $ to get:
 
-$$ \ln |t| = \ln |\tan x/2| $$
+$$ \int \frac{dt}{t} = \ln |t| = \ln |\tan x/2| $$
 
 Viola! The Weierstrass substitution transformed the integral into a common form over which we could integrate and then substitute $ t = \tan x/2 $ to get a solution.
 
@@ -382,10 +403,13 @@ If we consider this scenario under modulo $ 2 $, we get:
 $$ A^2 + B^2 \equiv 0^2 + 0^2 = 0 \equiv C^2 \mod 2 $$
 $$ A \equiv B \equiv C \equiv 0 \mod 2 $$
 
-Thus, we've proven that $ A $, $ B $, and $ C $ must all be even, therefore meaning that the triple is not primitive, and thus ruling out that possibility.
+That last part follows from the fact that if $ 2 \mid C^2 $, since $ 2 $ is prime, we must also have $ 2 \mid C $.
+Thus, we've proven that $ A $, $ B $, and $ C $ must all be even, therefore meaning that the triple is not primitive (all are divisible by $ 2 $), and thus ruling out that possibility.
 The next case requires proving that it is impossible for both $ A $ and $ B $ to be odd. We consider the situation under modulo $ 4 $:
 
 $$ A^2 + B^2 \equiv \set{ 1, 3 }^2 + \set{ 1, 3 }^2 \equiv 1 + 1 = 2 \equiv C^2 \mod 4 $$
+
+\* *The set notation $ \set{} $ is used here to indicate all possibilities of congruence*
 
 What the above equation tells us is that $ C^2 $ must be divisible by 2, but not by 4.
 Yet if $ C^2 $ is divisible by 2, since 2 is prime it must also divide $ C $ itself.
@@ -394,7 +418,7 @@ Thus, every primitive Pythagorean triple must have one even and one odd $ A $ or
 For the rest of this section we will assume $ A $ to be odd and $ B $ to be even.
 
 As pointed out in the first section, any Pythagorean triple $ (A, B, C) $ can be transformed onto the unit circle as the point $ (x, y) = (A/C, B/C) $ (primitive triples and their multiples are represented as the same point).
-What this means is that every possible Pythagorean triple corresponds to a unique rational point on the unit circle; if we find all the rational points on the unit circle, we've found all the Pythagorean triples.
+What this means is that every possible primitive Pythagorean triple corresponds to a unique rational point on the unit circle; if we find all the rational points on the unit circle, we've found all the Pythagorean triples.
 But we know how to do that!
 
 At this point, we could certainly use the rational parametrization of the unit circle we derived earlier to find all the Pythagorean triples.
@@ -412,7 +436,7 @@ Note that $ p < q $ is not really a limitation as it only serves to ensure that 
 
 Now all that's left is to rigorously prove that the above Pythagorean triple is always primitive no matter the choice of $ p $ and $ q $.
 However, since we're expressing $ t $ in simplest form so as to avoid duplicates, $ p $ and $ q $ must be relatively prime, which is the first restriction we will impose before we carry out the proof.
-The last restriction is that, in order for $ A $ to be odd like we assumed, we must have $ 2 \nmid q^2 - p^2 $, which forces one of $ p $ and $ q $ to be even and the other to be odd.
+The last restriction is that, in order for $ A $ to be odd like we assumed, we must have $ 2 \nmid (q^2 - p^2) $, which forces one of $ p $ and $ q $ to be even and the other to be odd.
 Summing up all our restrictions, we have:
 
 1. **Domain**: $ p, q \in \mathbb{Z}^{+} $
@@ -421,7 +445,8 @@ Summing up all our restrictions, we have:
 4. **Even/Odd Split**: $ (2 \mid p \cap 2 \nmid q) \cup (2 \nmid p \cap 2 \mid q) $
 
 Now we proceed to prove that the triple $ (q^2-p^2, 2pq, q^2+p^2) $ is indeed primitive.
-We begin by assuming some primitive triple $ (A, B, C) $ such that:
+We begin without assuming that this generated triple is primitive.
+Instead, let it be a constant multiple $ \lambda $ of some primitive triple $ (A, B, C) $ such that:
 
 $$ \lambda A = q^2 - p^2 $$
 $$ \lambda B = 2pq $$
