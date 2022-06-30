@@ -3,7 +3,7 @@ title: "Finding Every Possible Pythagorean Triple"
 description: "How to find, generate, and visualize every single Pythagorean triple"
 summary: "How to find, generate, and visualize every single Pythagorean triple: a journey through Fermat's Last Theorem, finding rational points on a conic, the Weierstrass substitution, and much more."
 date: 2022-06-13T01:10:17.545Z
-lastmod: 2022-06-27T23:18:48.020Z
+lastmod: 2022-06-30T23:00:19.892Z
 categories: ["Number Theory", "Algebraic Geometry", "Trigonometry"]
 tags: ["Fermat's Last Theorem", "Weierstrass substitution", "conic", "rational points", "Pythagorean theorem"]
 ---
