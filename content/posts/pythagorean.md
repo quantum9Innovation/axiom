@@ -107,7 +107,7 @@ When we graph there figures in the Cartesian plane and account for rotation, the
 $$ A x^2 + B y^2 + C xy + D x + E y + F = 0 $$
 
 for some coefficients $ A, B, C, D, E, F $ where $ AB \neq 0 $.
-In other words, conics are just algebraic curves (often called "algebraic varieties") of degree 2.
+In other words, conics are just algebraic curves (often called "algebraic varieties") of degree $ 2 $.
 Here's the graph of an arbitrary conic $ \mathcal{C} $: $ x^2 + y^2 + xy + x + y - 1 = 0 $:
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
@@ -152,7 +152,7 @@ In other words, the problem of finding a linear function such that its substitut
 
 But we have a point just like that!
 Earlier, we defined $ \mathcal{O} $ as a rational point on $ \mathcal{C} $, meaning both its coordinates are rational.
-If we draw any line through $ \mathcal{O} $ that intersects $ \mathcal{C} $ at another point $ P $, we have a second root for $ x $ in the quadratic.
+If we draw any line through $ \mathcal{O} $ that intersects $ \mathcal{C} $ at another point $ P $, we have a second root for $ x $ in the resulting quadratic.
 But since $ \mathcal{O} $ is a rational point, the quadratic already has one rational root, and therefore its second root must be rational as well, meaning the intersection $ P $ has a rational $ x $-coordinate.
 But, if our line is also rational, then we can find the corresponding $ y $-coordinate as $ a x + b $, meaning that a rational $ x $ implies a rational $ y $ for any point on the line.
 Therefore, our second intersection point has a rational $ x $-coordinate and a rational $ y $-coordinate, making it a rational point on $ \mathcal{C} $.
@@ -206,9 +206,11 @@ Our algorithm is as follows:
 </p>
 
 In effect, we are "projecting" the conic $ \mathcal{C} $ onto $ f(t) $, which in turn forms a unique mapping between points on $ \mathcal{C} $ and points on $ f(t) $, which we exploit to rationally parametrize any conic.
-One final note that should be made before we move on to circles is that this method does not find *every* rational point; in particular, it misses exactly one point, the most obvious of all: $ \mathcal{O} $.
+One final note that should be made before we move on to circles is that this method does not find *every* rational point; in particular, it misses exactly one point.
+This occurs at the point where the tangent line to the conic $ \mathcal{C} $ is exactly parallel to the line $ f(t) $ from which we are choosing $ Q $.
+This, in turn, means that the two lines never intersect and thus there is no point $ Q $ on $ f(t) $ that will correspond to this point on the conic.
 We introduce this more as a technicality than a severe issue as it presents no further problems later in our quest to find all Pythagorean triples.
-If you are curious as to whether it is possible to include $ \mathcal{O} $ in our parametrization, rest assured that it is indeed possible using the [projective plane](https://en.wikipedia.org/wiki/Projective_plane), where $ \mathcal{O} $ corresponds to $ t = \infty $, though that is a subtlety that we will ignore.
+If you are curious as to whether it is possible to include this mysterious point in our parametrization, rest assured that it is indeed possible using the [projective plane](https://en.wikipedia.org/wiki/Projective_plane), where we say that this point corresponds to $ t = \infty $, though that is a subtlety that we will ignore.
 
 ## The Weierstrass Substitution
 
@@ -272,14 +274,14 @@ While our result is obviously important algebraically, it can also be quite powe
 </p>
 
 What we're going to do now is not directly related to our problem of finding all possible Pythagorean triples, so feel free to skip over to the next section.
-However, the process which we're about to explore is so important that it is in many ways impossible to skip now that we've covered the rational parameterization of the unit circle.
+However, the process which we're about to explore is so important that it is in many ways impossible to skip now that we've covered the rational parametrization of the unit circle.
 
 Earlier it was hinted at that of the four rational points that we could have chosen as $ \mathcal{O} $, there was a reason why $ (-1, 0) $ was chosen in particular.
 That reason, as we can see now, is that $ t $ becomes the slope of the line $ \ell $, which makes the math we're about to do much simpler.
-We're going to explore the answer to a very obvious next question which is: how do we relate the rational parameterization of the circle to its traditional parameterization as $ (\cos \theta, \sin \theta) $?
+We're going to explore the answer to a very obvious next question which is: how do we relate the rational parametrization of the circle to its traditional parametrization as $ (\cos \theta, \sin \theta) $?
 More specifically, we're going to ask the question:
 
-> Given a point in the form $ (\cos \theta, \sin \theta) $ for some angle $ \theta $, what is the corresponding value of $ t $ that will generate that point in our rational parameterization?
+> Given a point in the form $ (\cos \theta, \sin \theta) $ for some angle $ \theta $, what is the corresponding value of $ t $ that will generate that point in our rational parametrization?
 
 In fact, we're going to forget about the condition $ t \in \mathbb{Q} $ that we imposed to ensure our parametrization produced *only* rational points and instead extend the domain of $ t $ to $ t \in \R $.
 To take a more geometric perspective, we are trying to find the value $ t $ shown in the diagram below:
@@ -330,7 +332,7 @@ $$ \frac{\cos^{4} x -\sin^{4} x}{\cos^{2}x} = 1-\tan^{2}x $$
 Your first instinct is probably to try and factor to get rid of the annoying $ \sin x $ term and then hope everything simplifies to yield a $ \tan^{2}x $ term somehow.
 But what if *all three* trigonometric functions could be expressed in terms of a single variable $ t $?
 Then the problem simply becomes algebra: simplify the rational functions of $ t $ on both sides and show they're equivalent.
-Here's what it would look like if we expressed everything in terms of $ t $ using the Weierstrass substitution and then wrote the left and right side as rational functions:
+Here's what it would look like if we expressed everything in terms of $ t $ using the Weierstrass substitution and then wrote the left and right sides as rational functions:
 
 $$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1-t^{2}\right)^{2}\left(1+t^{2}\right)^{2}} = 1-\frac{\left(2t\right)^{2}}{\left(1-t^{2}\right)^{2}} $$
 
@@ -368,7 +370,7 @@ Recall from our definition of $ t $ that we have:
 
 $$ t = \tan x/2 \Rightarrow x = 2 \arctan t $$
 
-This is essentially the Weierstrass substitution in reverse: it gives us a way to write the rational parameterization in terms of the traditional $ (\cos \theta, \sin \theta) $ parameterization of the unit circle.
+This is essentially the Weierstrass substitution in reverse: it gives us a way to write the rational parametrization in terms of the traditional $ (\cos \theta, \sin \theta) $ parametrization of the unit circle.
 Using this to rewrite our integral gives:
 
 $$ \int \frac{1 + t^2}{2t} \space d(2 \arctan t) = \int \frac{1 + t^2}{2t} \space \frac{d}{dt}(2 \arctan t) \space dt $$
@@ -426,7 +428,7 @@ However, we're going to restrict ourselves to generating only the *primitive* Py
 Notice also that if we were to simply use the rational parametrization as is, we would end up with a lot of non-primitive triples for $ |t| > 1 $ and a lot of fractional ones for $ |t| < 1 $ (which aren't really triples at all since $ A, B, C \notin \Z $).
 
 The key insight is to let $ t = p/q $ for some integers $ p $ and $ q $.
-Expressing $ t $ in "rational" form guarantees that our parametrization will yield integers if $ p $ and $ q $ are also integers.
+Expressing $ t $ in "rational" form allows us to express the result in a similar rational form, from which we can generate a non-fractional Pythagorean triple.
 Substituting $ t = p/q $ into the rational parametrization of the unit circle gives:
 
 $$ \left(\frac{q^{2}-p^{2}}{q^{2}+p^{2}},\frac{2pq}{q^{2}+p^{2}}\right) $$
@@ -482,7 +484,7 @@ We have a similar definition for $ \lambda A $ that we can exploit:
 
 $$ \lambda A = q^2 - p^2 \equiv 2 \mod 4 $$
 
-Instead of proving that the square of an integer cannot equal $ 2 \space \mathrm{mod}\ 4 $, we need to prove that the difference of the squares of two integers cannot equal $ 2 \space \mathrm{mod}\ 4 $.
+Instead of proving that the square of an integer cannot be congruent to $ 2 \space \mathrm{mod}\ 4 $, we need to prove that the *difference* of the squares of two integers cannot be congruent to $ 2 \space \mathrm{mod}\ 4 $.
 The process is nearly identical; we have*:
 
 $$ q^2 - p^2 \equiv \set{0,...,3}^2 - \set{0,...,3}^2 \equiv \set{0,1} - \set{0,1} = \set{0,-1,1} \mod 4 $$
@@ -640,7 +642,7 @@ Here's an interactive demo where you can set different limit values and see the 
   <iframe id="primitives" src="../interactive/pythagorean/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
-For the grand finale, here's what plotting the first $ 2000 $ primitive Pythagorean triples looks like (with `limit=100`):
+For the grand finale, here's what plotting the first $ 2000 $ primitive Pythagorean triples looks like (with `limit=100` and no lines to reduce clutter):
 
 <p align='center'>
   <img id='pythagorean100' width='75%' src='../assets/pythagorean/pythagorean100.png' alt='The pattern from last image is very much apparent; triples cluster near the origin and, as the coordinates increase in magnitude, they appear to follow certain curved paths extending radially across the first quadrant of the Cartesian plane.'/>
