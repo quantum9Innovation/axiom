@@ -1,0 +1,26 @@
+languageCode = "es"
+languageName = "Spanish"
+displayName = "ES"
+isoCode = "es"
+weight = 0.9
+rtl = false
+
+title = "El Axioma"
+logo = "assets/img/logo.png"
+description = "El blog oficial de @quantum9innovation"
+copyright = "Licenciado bajo [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)"
+
+dateFormat = "2/1/06"
+
+[author]
+  name = "quantum9innovation (q9i)"
+  image = "assets/img/author.png"
+  headline = "Solamente soy una persona"
+  bio = "El software es una forma de arte"
+  links = [
+    { email = "mailto:dev.quantum9innovation@gmail.com" },
+    { dev = "https://dev.to/quantum9innovation" },
+    { github = "https://github.com/quantum9innovation" },
+    { gitlab = "https://gitlab.com/thebluedev" },
+    { medium = "https://q9i.medium.com" },
+  ]
