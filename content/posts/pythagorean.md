@@ -102,7 +102,7 @@ This chapter, we're going to do a bit more; we ask: how do you find every ration
 First, we have to be clear what we mean by a conic "in its most general form."
 We typically think of conics as being the result of cross sections of a cone at different angles.
 From these cross sections, we get the four standard conics: circles, ellipses, parabolas, and hyperbolas.
-When we graph there figures in the Cartesian plane and account for rotation, they all have an equation of the form:
+When we graph these figures in the Cartesian plane and account for rotation, they all have an equation of the form:
 
 $$ A x^2 + B y^2 + C xy + D x + E y + F = 0 $$
 
