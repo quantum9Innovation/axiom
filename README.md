@@ -12,4 +12,4 @@ Next, fire up a terminal and run the following command:
 hugo server --buildDrafts
 ```
 
-This will enable hot-reloading and display all draft articles as well. Refer to the [Hugo documentation](https://gohugo.io/documentation/) for more information (such as hosting on specific URLS).
+This will enable hot-reloading and display all draft articles as well. Refer to the [Hugo documentation](https://gohugo.io/documentation/) for more information (such as hosting on specific URLs).
