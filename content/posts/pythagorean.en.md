@@ -3,7 +3,7 @@ title: "Finding Every Possible Pythagorean Triple"
 description: "How to find, generate, and visualize every single Pythagorean triple"
 summary: "How to find, generate, and visualize every single Pythagorean triple: a journey through Fermat's Last Theorem, finding rational points on a conic, the Weierstrass substitution, and much more."
 date: 2022-06-13T01:10:17.545Z
-lastmod: 2022-06-30T23:00:19.892Z
+lastmod: 2023-06-06T03:38:03.096Z
 categories: ["Number Theory", "Algebraic Geometry", "Trigonometry"]
 tags: ["Fermat's Last Theorem", "Weierstrass substitution", "conic", "rational points", "Pythagorean theorem"]
 ---
@@ -13,6 +13,11 @@ tags: ["Fermat's Last Theorem", "Weierstrass substitution", "conic", "rational p
 {{< lead >}}
 How to find, generate, and visualize every single Pythagorean triple
 {{< /lead >}}
+
+Pythagorean triples are sets of three integers which satisfy a very specific relationship—two of those integers form the base of a right triangle, with the third being the hypotenuse.
+There are many common ones, like $ (3, 4, 5) $, or $ (5, 12, 13) $, but as the numbers grow, finding these triples becomes a difficult task.
+Is it possible to procedurally generate these triples?
+To answer this question, we begin by examining what makes the relationship between integers in a Pythagorean triple unique.
 
 ## Fermat's Last Theorem
 
@@ -26,10 +31,9 @@ As it happens, there are infinitely many $ A $, $ B $, and $ C $ such that this 
 Yet, perhaps a more subtle peculiarity is that the Pythagorean theorem is a very special case of a much larger problem, for which this property does not exist.
 If we consider the same problem in $ A $, $ B $, and $ C $ but simply change the exponent and ask for integer solutions:
 
-$$ A^n + B^n = C^n \space \textnormal{where} \space A, B, C, n \in \Z \space \cap \space n \ge 2 $$
+$$ A^n + B^n = C^n \space \textnormal{where} \space A, B, C, n \in \Z \space \cap \space n > 2 $$
 
-there are not infinite but *zero* solutions over the integers in the case where $ n > 2 $.
-Moreover, there are zero *non-trivial* solutions, which is to say that there are zero solutions where all $ A, B, C \neq 0 $.
+there are not infinite but *zero* non-trivial solutions, which is to say that there are zero solutions where all $ A, B, C \neq 0 $.
 This is Fermat's Last Theorem, which states that the equation $ A^n + B^n = C^n $ has no solutions over the integers if $ n > 2 $.
 This simple statement is deceptively hard to prove; it took more than three centuries for a formal proof to be presented after Fermat's initial proposition in 1637 AD.
 
@@ -346,7 +350,7 @@ $$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1+t^{2}\right)^{2}}
 
 Clearing denominators yet again, this time on the left side, yields:
 
-$$ \left(1-t^{2}\right)^{4}-\left(2t\right)^{4} = \left(1+t^{2}\right)^{2}\left(\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}\\right) $$
+$$ \left(1-t^{2}\right)^{4}-\left(2t\right)^{4} = \left(1+t^{2}\right)^{2}\left(\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}\ \right) $$
 
 At this point, we can simply expand all the binomials to get:
 
