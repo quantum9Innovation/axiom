@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://quantum9innovation.github.io/axiom/sitemap.xml
