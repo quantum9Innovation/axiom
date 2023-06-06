@@ -1,2 +1,2 @@
 <body><iframe style=margin:0;position:absolute;top:50%;left:50%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%) src=path/to/game id=404-game width=500 height=500 scrolling=none frameborder=0></iframe>
-<script>var randomBetween=function(e,t){return Math.floor(Math.random()*t)+e},randomGame=function(){var e=["pacman","space-invaders","snake"],t=randomBetween(0,e.length);return e[t]},src="/axiom/en/404/"+randomGame();document.getElementById("404-game").src=src</script></body>
+<script>const randBetween=(e,t)=>Math.floor(Math.random()*t)+e,randGame=()=>{const e=["pacman","space-invaders","snake"],t=randBetween(0,e.length);return e[t]},src="/axiom/en/404/"+randGame();document.getElementById("404-game").src=src</script></body>
