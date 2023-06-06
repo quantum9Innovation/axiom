@@ -7,7 +7,7 @@ copyright = "Bajo la protección de la licencia [CC BY-SA 4.0](https://creativec
 
 [params]
   isoCode = "es"
-  displayName = "ES"
+  displayName = "(en Español)"
   rtl = false
 
   dateFormat = "2 January 2006"

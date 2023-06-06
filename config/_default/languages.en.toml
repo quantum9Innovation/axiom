@@ -7,7 +7,7 @@ copyright = "Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/
 
 [params]
   isoCode = "en"
-  displayName = "EN"
+  displayName = "(in English)"
   rtl = false
 
   dateFormat = "January 2, 2006"
