@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on El Axioma</title>
+    <link>https://quantum9innovation.github.io/axiom/es/categories/</link>
+    <description>Recent content in Categories on El Axioma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>Bajo la protección de la licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)</copyright>
+    <lastBuildDate>Mon, 13 Jun 2022 01:10:17 +0000</lastBuildDate><atom:link href="https://quantum9innovation.github.io/axiom/es/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Geometría algebraica</title>
+      <link>https://quantum9innovation.github.io/axiom/es/categories/geometr%C3%ADa-algebraica/</link>
+      <pubDate>Mon, 13 Jun 2022 01:10:17 +0000</pubDate>
+      
+      <guid>https://quantum9innovation.github.io/axiom/es/categories/geometr%C3%ADa-algebraica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teoría de números</title>
+      <link>https://quantum9innovation.github.io/axiom/es/categories/teor%C3%ADa-de-n%C3%BAmeros/</link>
+      <pubDate>Mon, 13 Jun 2022 01:10:17 +0000</pubDate>
+      
+      <guid>https://quantum9innovation.github.io/axiom/es/categories/teor%C3%ADa-de-n%C3%BAmeros/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trigonometría</title>
+      <link>https://quantum9innovation.github.io/axiom/es/categories/trigonometr%C3%ADa/</link>
+      <pubDate>Mon, 13 Jun 2022 01:10:17 +0000</pubDate>
+      
+      <guid>https://quantum9innovation.github.io/axiom/es/categories/trigonometr%C3%ADa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

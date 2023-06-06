@@ -1,0 +1,1246 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="rgb(255,255,255)" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Finding Every Possible Pythagorean Triple &middot; The Axiom</title>
+    <meta name="title" content="Finding Every Possible Pythagorean Triple &middot; The Axiom" />
+  
+  <meta name="description" content="How to find, generate, and visualize every single Pythagorean triple" />
+  
+  
+  
+  <link rel="canonical" href="https://quantum9innovation.github.io/axiom/posts/pythagorean/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/axiom/css/main.bundle.min.a6debbb9c2752cfaaf987cbf5014fd1df44fb95b3494591ae67b7f8b99579a03.css"
+    integrity="sha256-pt67ucJ1LPqvmHy/UBT9HfRPuVs0lFka5nt/i5lXmgM="
+  />
+  
+  
+  <script type="text/javascript" src="/axiom/js/appearance.min.022d0ebc3b46a335eb1c7ef79b7f2de143d7cd5156d433638592ef1ce5f8554e.js" integrity="sha256-Ai0OvDtGozXrHH73m38t4UPXzVFW1DNjhZLvHOX4VU4="></script>
+  
+  
+    
+    
+  
+  
+  
+    
+    <script defer type="text/javascript" id="script-bundle" src="/axiom/js/main.bundle.min.3e80d0528c59616e7de9b0ca9316d9afd314b49ed9e5e6b88873731486ad67ee.js" integrity="sha256-PoDQUoxZYW596bDKkxbZr9MUtJ7Z5ea4iHNzFIatZ&#43;4=" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/axiom/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/axiom/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/axiom/favicon-16x16.png" />
+    <link rel="manifest" href="/axiom/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Finding Every Possible Pythagorean Triple" />
+<meta property="og:description" content="How to find, generate, and visualize every single Pythagorean triple" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://quantum9innovation.github.io/axiom/posts/pythagorean/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-13T01:10:17+00:00" />
+<meta property="article:modified_time" content="2022-06-30T23:00:19+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Finding Every Possible Pythagorean Triple"/>
+<meta name="twitter:description" content="How to find, generate, and visualize every single Pythagorean triple"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Finding Every Possible Pythagorean Triple",
+    "headline": "Finding Every Possible Pythagorean Triple",
+    "description": "How to find, generate, and visualize every single Pythagorean triple",
+    "abstract": "How to find, generate, and visualize every single Pythagorean triple: a journey through Fermat\u0026rsquo;s Last Theorem, finding rational points on a conic, the Weierstrass substitution, and much more.",
+    "inLanguage": "en",
+    "url" : "https:\/\/quantum9innovation.github.io\/axiom\/posts\/pythagorean\/",
+    "author" : {
+      "@type": "Person",
+      "name": "quantum9innovation (q9i)"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-06-13T01:10:17\u002b00:00",
+    "datePublished": "2022-06-13T01:10:17\u002b00:00",
+    
+    "dateModified": "2022-06-30T23:00:19\u002b00:00",
+    
+    "keywords": ["Fermat's Last Theorem","Weierstrass substitution","conic","rational points","Pythagorean theorem"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "7255"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="quantum9innovation (q9i)" />
+  
+    
+      <link href="mailto:dev.quantum9innovation@gmail.com" rel="me" />
+    
+      <link href="https://dev.to/quantum9innovation" rel="me" />
+    
+      <link href="https://github.com/quantum9innovation" rel="me" />
+    
+      <link href="https://gitlab.com/thebluedev" rel="me" />
+    
+      <link href="https://q9i.medium.com" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold pe-2 text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/axiom/"
+    >The Axiom</a
+  >
+
+      
+  
+  <ul class="flex list-none flex-row">
+    
+      
+    
+      
+        <li class="ml-2">
+          <a
+            href="/axiom/es/posts/pythagorean/"
+            class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+            >ES</a
+          >
+        </li>
+      
+    
+  </ul>
+
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/axiom/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Blog</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/axiom/categories/"
+                  title="Categories"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/axiom/tags/"
+                  title="Tags"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Tags</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/axiom/"
+      >The Axiom</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/axiom/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/axiom/posts/pythagorean/"
+      >Finding Every Possible Pythagorean Triple</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Finding Every Possible Pythagorean Triple
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2022-06-13 01:10:17.545 &#43;0000 UTC">June 13, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>7255 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">35 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+    <div class="my-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400 ">
+      
+        
+          
+            <a
+              href="/axiom/categories/number-theory/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Number Theory</a
+            >
+          
+            <a
+              href="/axiom/categories/algebraic-geometry/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Algebraic Geometry</a
+            >
+          
+            <a
+              href="/axiom/categories/trigonometry/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Trigonometry</a
+            >
+          
+        
+      
+        
+          
+            <a
+              href="/axiom/tags/fermats-last-theorem/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Fermat&#39;s Last Theorem</a
+            >
+          
+            <a
+              href="/axiom/tags/weierstrass-substitution/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Weierstrass substitution</a
+            >
+          
+            <a
+              href="/axiom/tags/conic/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >conic</a
+            >
+          
+            <a
+              href="/axiom/tags/rational-points/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >rational points</a
+            >
+          
+            <a
+              href="/axiom/tags/pythagorean-theorem/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >Pythagorean theorem</a
+            >
+          
+        
+      
+    </div>
+  
+
+
+      </div>
+      
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        <link type='text/css' rel='stylesheet' href='../../en/assets/css/syntax.css'></style>
+<div class="lead !mb-9 text-xl">
+  How to find, generate, and visualize every single Pythagorean triple
+</div>
+
+<h2 id="fermats-last-theorem" class="relative group">Fermat&rsquo;s Last Theorem <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#fermats-last-theorem" aria-label="Anchor">#</a></span></h2>
+<p>In solving any type of mathematical problem, it&rsquo;s often useful to connect it to more general problems, which can provide a bit of context to guide the solution process.
+The question of finding all possible Pythagorean triples is a good example of this.
+We are essentially asking to find $ A $, $ B $, and $ C $ such that:</p>
+<p>$$ A^2 + B^2 = C^2 \space \textnormal{where} \space A, B, C \in \Z $$</p>
+<p>As it happens, there are infinitely many $ A $, $ B $, and $ C $ such that this equation is true.
+Yet, perhaps a more subtle peculiarity is that the Pythagorean theorem is a very special case of a much larger problem, for which this property does not exist.
+If we consider the same problem in $ A $, $ B $, and $ C $ but simply change the exponent and ask for integer solutions:</p>
+<p>$$ A^n + B^n = C^n \space \textnormal{where} \space A, B, C, n \in \Z \space \cap \space n \ge 2 $$</p>
+<p>there are not infinite but <em>zero</em> solutions over the integers in the case where $ n &gt; 2 $.
+Moreover, there are zero <em>non-trivial</em> solutions, which is to say that there are zero solutions where all $ A, B, C \neq 0 $.
+This is Fermat&rsquo;s Last Theorem, which states that the equation $ A^n + B^n = C^n $ has no solutions over the integers if $ n &gt; 2 $.
+This simple statement is deceptively hard to prove; it took more than three centuries for a formal proof to be presented after Fermat&rsquo;s initial proposition in 1637 AD.</p>
+<p>While mathematically proving that this is true is quite hard, it&rsquo;s relatively simple to see its implications when we study this problem from a visual perspective.
+To do that, we&rsquo;ll need to plot this equation as some kind of curve on the Cartesian plane.
+While we could go ahead and plot this in three dimensions, we can make a clever substitution that will allow us to plot this curve in two dimensions.
+If we divide both sides by $ C^n $, we get:</p>
+<p>$$ \left( \frac{A}{C} \right)^n + \left( \frac{B}{C} \right)^n = 1 $$</p>
+<p>Now, we notice that both $ \frac{A}{C} $ and $ \frac{B}{C} $ are rational numbers, since both their numerators and denominators are integers.
+This means we can make the substitution:</p>
+<p>$$ (x, y) = \left( \frac{A}{C}, \frac{B}{C} \right) $$</p>
+<p>Now we are looking for solutions to the equation:</p>
+<p>$$ x^n + y^n = 1 \space \textnormal{where} \space x, y \in \mathbb{Q} $$</p>
+<p>For now, we&rsquo;ll stick to the cases where $ n &gt; 2 $.
+Graphing the equation for various values of $ n $ reveals two families of similar-looking curves: one where $ n $ is even and one where $ n $ is odd.</p>
+<div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
+  <span class="pe-3 text-primary-400">
+    <span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+</span>
+  </span>
+  <span class="dark:text-neutral-300">This graph, like every other in this article, is interactive.
+Drag to translate the graph and scroll or pinch to zoom.
+Use the slider below to adjust the value of $ n $.</span>
+</div>
+
+<div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
+  <iframe id="fermat" src="../../en/posts/interactive/pythagorean/fermat.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p>As we increase the value of $ n $, the curves resemble one of the two families of curves shown above, depending on whether $ n $ is even or odd.
+Larger values of $ n $ result in sharper corners and the graph taking a more box-like shape.
+Now, we turn back to the case where $ n = 2 $ and ask what makes this different from all the others:</p>
+<p>$$ x^2 + y^2 = 1 $$</p>
+<p>Well, as it turns out, the &ldquo;Fermat curve&rdquo; for $ n = 2 $ is not a Fermat curve at all but one of the most familiar geometric objects in all of mathematics: the unit circle.
+Combining this with our knowledge that there are infinitely many Pythagorean triples, we can deduce that there must be infinitely many points on the unit circle with $ x, y \in \mathbb{Q} $.
+We term such a point with rational coordinates a <em>rational point</em> on the unit circle.</p>
+<p>Going in the other direction, given a rational point on the unit circle $ (x, y) $, we can rewrite $ x $ and $ y $ as fractions $ \frac{a}{b} $ and $ \frac{c}{d} $, respectively.
+We then have:</p>
+<p>$$ \left( \frac{a}{b} \right)^2 + \left( \frac{c}{d} \right)^2 = 1 $$</p>
+<p>Clearing denominators gives:</p>
+<p>$$ (ad)^2 + (bc)^2 = (bd)^2 $$</p>
+<p>This is a Pythagorean triple!
+We simply let:</p>
+<p>$$ (A, B, C) = (ad, bc, bd) $$</p>
+<p>Thus, there is a direct correspondence between rational points on the unit circle and Pythagorean triples.
+Finding one gives us the other.
+In other words, our question is no longer &ldquo;find all Pythagorean triples&rdquo; but instead &ldquo;find all rational points on the unit circle.&rdquo;</p>
+<h2 id="rational-points-on-a-conic" class="relative group">Rational Points on a Conic <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#rational-points-on-a-conic" aria-label="Anchor">#</a></span></h2>
+<p>So far, we&rsquo;ve reduced the problem of finding all possible Pythagorean triples to finding all rational points on the unit circle.
+If we find a rational point on the unit circle, then we know it corresponds to a unique Pythagorean triple.
+To be fair, this may not seem like much of a reduction: we&rsquo;ve reduced a difficult problem to one that at first glance seems even harder: how do you find rational points on a curve? And, as if that wasn&rsquo;t enough, how do you find <em>every</em> rational point?
+Just like the previous section, we&rsquo;re going to generalize a bit in the hopes of relating this problem to others and in turn finding a pattern that will help reduce this problem to one that can be more easily solved.</p>
+<p>Last section we ended by asking how to find every rational point on the unit circle.
+This chapter, we&rsquo;re going to do a bit more; we ask: how do you find every rational point on a conic in its most general form?
+First, we have to be clear what we mean by a conic &ldquo;in its most general form.&rdquo;
+We typically think of conics as being the result of cross sections of a cone at different angles.
+From these cross sections, we get the four standard conics: circles, ellipses, parabolas, and hyperbolas.
+When we graph these figures in the Cartesian plane and account for rotation, they all have an equation of the form:</p>
+<p>$$ A x^2 + B y^2 + C xy + D x + E y + F = 0 $$</p>
+<p>for some coefficients $ A, B, C, D, E, F $ where $ AB \neq 0 $.
+In other words, conics are just algebraic curves (often called &ldquo;algebraic varieties&rdquo;) of degree $ 2 $.
+Here&rsquo;s the graph of an arbitrary conic $ \mathcal{C} $: $ x^2 + y^2 + xy + x + y - 1 = 0 $:</p>
+<div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
+  <iframe id="ellipse" src="../../en/posts/interactive/pythagorean/ellipse.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p>For the purposes of our problem, we&rsquo;ll assume that $ \mathcal{C} $ contains some rational point $ \mathcal{O} $ that we are aware of.
+In this case, $ \mathcal{O} $ is the point $(-1, 1) $.
+What we&rsquo;re going to do is create a generating function for every other rational point on $ \mathcal{C} $ simply from knowing $ \mathcal{O} $.</p>
+<p>One interesting observation that we can make is that if we know what one of the variables, say $ y $, is in terms of some linear function $ \ell $ of the other, we can substitute it into the equation of our conic to get a quadratic in just one variable.
+This roots of this resulting quadratic give us the intersections between the conic $ \mathcal{C} $ and the linear function $ \ell $.
+A nice property of quadratics is that the constant term $ c $ of a quadratic $ a x^2 + b x + c = 0 $ is always a constant multiple of the product of the two roots.
+This follows from the fact that, by the Fundamental Theorem of Algebra, any quadratic can be factored as:</p>
+<p>$$ a x^2 + b x + c = a(x - r)(x - s) $$</p>
+<p>for some roots $ r, s $.
+Multiplying out the factored form yields:</p>
+<p>$$ a x^2 + b x + c = a x^2 - a(r + s) x + ars $$</p>
+<p>Setting the constant terms equal to each other gives:</p>
+<p>$$ c = ars $$</p>
+<p>We&rsquo;ll assume that both our conic and our linear expression of $ y $ in terms of $ x $ have solely rational coefficients so that this quadratic has rational coefficients as well.
+If we know one of the roots $ s $ is rational, then the other root $ r $ must also be rational as:</p>
+<p>$$ r = \frac{c}{as} \space \textnormal{where} \space c, a, s \in \mathbb{Q} $$</p>
+<p>To sum up our work so far as it is relevant to solving this problem, we know that if we can express $ y $ as a linear function of $ x $ with rational coefficients, then we can substitute $ y $ into the equation to get a quadratic in $ x $.
+And, if that quadratic happens to have one rational root $ x = s $, then its second root $ x = r $ must also be rational.
+Right now, this may seem a bit complicated and useless, but the first step should give us a hint as to what we need to do: write $ y $ as a linear function of $ x $.</p>
+<p>A linear function has the form $ y = a x + b $, where we&rsquo;ll assume $ a $ and $ b $ are rational coefficients so the resulting quadratic contains solely rational coefficients as well.
+We will refer to such a line as a &ldquo;rational line&rdquo; and any conic with rational coefficients as a &ldquo;rational conic.&rdquo;
+The key to our solution lies in choosing a line such that when this value of $ y $ is substituted into $ \mathcal{C} $, we get a quadratic in $ x $ with at least one rational root, thereby implying the existence of another rational root, giving us another point on the conic with a rational $ x $-coordinate.</p>
+<p>As hinted at before, what we&rsquo;re essentially doing when we substitute a linear equation $ \ell $ for $ y $ in $ \mathcal{C} $ is solving for the intersection between this line and the conic.
+In other words, the problem of finding a linear function such that its substitution into $ \mathcal{C} $ gives a quadratic in $ x $ with at least one rational root is equivalent to finding a line which intersects $ \mathcal{C} $ at some point with a rational $ x $-coordinate.</p>
+<p>But we have a point just like that!
+Earlier, we defined $ \mathcal{O} $ as a rational point on $ \mathcal{C} $, meaning both its coordinates are rational.
+If we draw any line through $ \mathcal{O} $ that intersects $ \mathcal{C} $ at another point $ P $, we have a second root for $ x $ in the resulting quadratic.
+But since $ \mathcal{O} $ is a rational point, the quadratic already has one rational root, and therefore its second root must be rational as well, meaning the intersection $ P $ has a rational $ x $-coordinate.
+But, if our line is also rational, then we can find the corresponding $ y $-coordinate as $ a x + b $, meaning that a rational $ x $ implies a rational $ y $ for any point on the line.
+Therefore, our second intersection point has a rational $ x $-coordinate and a rational $ y $-coordinate, making it a rational point on $ \mathcal{C} $.</p>
+<p>Here&rsquo;s an example:</p>
+<div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
+  <span class="pe-3 text-primary-400">
+    <span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+</span>
+  </span>
+  <span class="dark:text-neutral-300">Points with a translucent circle around them can be moved!
+Move the blue point on the $ y $-axis anywhere across the screen to generate a new rational point on the ellipse.</span>
+</div>
+
+<br>
+<div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
+  <iframe id="example" src="../../en/posts/interactive/pythagorean/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p>Drawing the rational line $ y = -2x - 1 $ through $ \mathcal{O} $ intersects the ellipse again, yielding a second rational point $ \left( \frac{1}{3}, -\frac{5}{3} \right) $.
+Graphically, it is easy to see that if we want to get <em>all</em> rational points on $ \mathcal{C} $, we need to draw every single rational line through $ \mathcal{O} $ so that we &ldquo;sweep&rdquo; through the entire plane.
+Mathematically speaking, we know that given two rational points, the line between them must have a rational slope, since their slope can be expressed as the quotient of their differences in $ x $ and $ y $, which are in turn rational.
+If we draw a line for every possible rational slope, we must inevitably find every rational point.</p>
+<p>Our question now is simply how to <em>parameterize</em> the conic $ \mathcal{C} $ so that we account for all rational points and <em>only</em> the rational points.
+We call such a parametrization a &ldquo;rational parametrization&rdquo; of the conic $ \mathcal{C} $.
+Rational parametrizations parameterize a curve $ \mathcal{C} $ as a function of some rational variable $ t $ such that for every rational $ t $, a rational $ (x, y) $ coordinate pair is generated.</p>
+<p>At this point, we could very well go ahead and parametrize $ \mathcal{C} $ in terms of the slope of our line, though a more geometrically pleasing way to think about this involves drawing a second rational line.
+Accounting for all slopes just means we need to pick a second point somewhere on the Cartesian plane that constantly moves so as to change the slope of our line continuously.
+We already know that the slope between two rational points is rational, so we just need to find a set of rational points on the plane that satisfy this condition of a continuously changing slope.</p>
+<p>A rational line provides the perfect answer.
+By moving through every point on a rational line, we change the slope of the line intersecting the conic.
+That&rsquo;s because two lines with distinct slopes intersect at one and only one point.
+In our example, one of the lines (the line from which we are choosing the set of points) never changes slope.
+Thus, in order for the intersection point to change, the line intersecting the conic must change slope.
+Traversing through all possible points on a rational line generates intersecting lines with all possible slopes (with one exception, as we&rsquo;ll see later).
+A geometric diagram will make this intuitively clearer.</p>
+<p>Our algorithm is as follows:</p>
+<ol>
+<li>Pick a rational number $ t $ over which $ \mathcal{C} $ will be parameterized</li>
+<li>Evaluate $ f(t) $ for some rational linear function $ f(x) = c x + d $ to yield some rational point $ Q $ on $ f $</li>
+<li>Draw a line $ \ell $ through points $ \mathcal{O} $ and $ Q $, where $ \mathcal{O} $ is a rational point on $ \mathcal{C} $</li>
+<li>Solve for the intersection $ \ell \cap \mathcal{C} $, which yields the desired corresponding rational point $ P $ on $ \mathcal{C} $</li>
+</ol>
+<div style="position: relative; width: 75%; padding-top: 100%; margin: auto;">
+  <iframe id="projection" src="../../en/posts/interactive/pythagorean/projection.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p align='center'>
+  $ f(t) $ is plotted in green; $ t $ determines the point $ Q $ (in purple) on $ f $; the line connecting $ Q $ and $ \mathcal{O} $ is in blue and intersects the conic at point $ P $
+</p>
+<p>In effect, we are &ldquo;projecting&rdquo; the conic $ \mathcal{C} $ onto $ f(t) $, which in turn forms a unique mapping between points on $ \mathcal{C} $ and points on $ f(t) $, which we exploit to rationally parametrize any conic.
+One final note that should be made before we move on to circles is that this method does not find <em>every</em> rational point; in particular, it misses exactly one point.
+This occurs at the point where the tangent line to the conic $ \mathcal{C} $ is exactly parallel to the line $ f(t) $ from which we are choosing $ Q $.
+This, in turn, means that the two lines never intersect and thus there is no point $ Q $ on $ f(t) $ that will correspond to this point on the conic.
+We introduce this more as a technicality than a severe issue as it presents no further problems later in our quest to find all Pythagorean triples.
+If you are curious as to whether it is possible to include this mysterious point in our parametrization, rest assured that it is indeed possible using the <a
+  href="https://en.wikipedia.org/wiki/Projective_plane"
+  
+  target="_blank" rel="noreferrer noopener"
+>projective plane</a>, where we say that this point corresponds to $ t = \infty $, though that is a subtlety that we will ignore.</p>
+<h2 id="the-weierstrass-substitution" class="relative group">The Weierstrass Substitution <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-weierstrass-substitution" aria-label="Anchor">#</a></span></h2>
+<p>Hooray! 🎉
+The hard work is (mostly) done.
+We <em>needed</em> to rationally parameterize the unit circle, yet instead we developed a rational parametrization for every conic.
+Now all we have to do is come up with an efficient way to apply what we&rsquo;ve learned from the previous section to the unit circle.</p>
+<div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
+  <iframe id="circle" src="../../en/posts/interactive/pythagorean/circle.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p>To rationally parameterize a conic, we need two things: some rational point $ \mathcal{O} $ and some rational line to project the conic onto.
+In the case of the unit circle, we have four &ldquo;obvious&rdquo; rational points: $ (\pm 1, 0), (0, \pm 1) $.
+For reasons that will be made clear later, let&rsquo;s choose the point $ (-1, 0) $ to be $ \mathcal{O} $.
+For our rational projection line, we have a myriad of options.
+However, though our previous example showed the rational line outside the conic, there is by no means any reason why our projection line cannot intersect the conic itself.
+Sometimes, the best options are the most obvious ones; in our case, those are the $ x $ and $ y $ axes themselves.
+We see immediately that the $ x $ axis does not work as no matter what point we choose, the line from $ (-1, 0) $ will have slope $ 0 $, and thus only intersect the circle at the point $ (1, 0) $.
+This leaves the $ y $ axis as the next easiest choice.</p>
+<p>Moving to step two in our algorithm, we need to map some rational number $ t $ to a rational point along the $ y $ axis.
+We can easily do this by parameterizing the $ y $ axis as $ (0, t) $.
+This gives us our point $ Q $ for step three.</p>
+<p>We now draw the line $ \ell $ through $ \mathcal{O} $ and $ Q $, which is given by the equation $ y = t(x + 1) $.
+The output of our algorithm, the intersection $ \ell \cap \mathcal{C} $, gives us the desired rational point $ P $.
+Substituting our definition of $ y $ from $ \ell $ into the definition of the unit circle yields:</p>
+<p>$$ x^2 + t^2(x + 1)^2 = 1 $$</p>
+<p>Rearranging gives:</p>
+<p>$$ t^2(1 + x)^2 = 1 - x^2 $$
+$$ t^2(1 + x)\cancel{(1 + x)} = \cancel{(1 + x)}(1 - x) $$
+$$ t^2(1 + x) = 1 - x $$</p>
+<p>At this point we can solve for $ x $ in terms of $ t $ to get:</p>
+<p>$$ x = \frac{1 - t^2}{1 + t^2} $$</p>
+<p>Substituting this into the definition of $ \ell $ yields a value for $ y $ as well:</p>
+<p>$$ y = t \left( \frac{1 - t^2}{1 + t^2} + 1 \right) = t \left( \frac{2}{1 + t^2} \right) = \frac{2t}{1 + t^2} $$</p>
+<p>Combining these two equalities yields the rational parametrization of the unit circle:</p>
+<p>$$ (x, y) = \left( \frac{1 - t^2}{1 + t^2}, \frac{2t}{1 + t^2} \right) $$</p>
+<p>We see immediately that for any $ t \in \mathbb{Q} $, we must get a corresponding rational point on the unit circle, as generating this point consists only of multiplication, division, addition, and subtraction, which, when applied to rational numbers, always yield a rational number as an output.
+Note that this is <em>not</em> the case if we use the familiar parametric equation of a circle $ (\cos \theta, \sin \theta) $; even if we have $ \theta \in \mathbb{Q} $, we cannot guarantee that the output of either $ \cos \theta $ or $ \sin \theta $ will yield a rational output (try expressing the point $ (\cos 1, \sin 1) $ in terms of rational coordinates).</p>
+<p>While our result is obviously important algebraically, it can also be quite powerful to look at it from a geometric perspective.</p>
+<div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
+  <iframe id="weierstrass" src="../../en/posts/interactive/pythagorean/weierstrass.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p align='center'>
+  Points on the unit circle are projected onto the $ y $ axis, with points in the first and fourth quadrants being mapped to points inside the unit circle (where $ -1 \leq t \leq 1 $) and points in the second and third quadrants being mapped to points outside the unit circle (where $ |t| > 1 $).
+</p>
+<p>What we&rsquo;re going to do now is not directly related to our problem of finding all possible Pythagorean triples, so feel free to skip over to the next section.
+However, the process which we&rsquo;re about to explore is so important that it is in many ways impossible to skip now that we&rsquo;ve covered the rational parametrization of the unit circle.</p>
+<p>Earlier it was hinted at that of the four rational points that we could have chosen as $ \mathcal{O} $, there was a reason why $ (-1, 0) $ was chosen in particular.
+That reason, as we can see now, is that $ t $ becomes the slope of the line $ \ell $, which makes the math we&rsquo;re about to do much simpler.
+We&rsquo;re going to explore the answer to a very obvious next question which is: how do we relate the rational parametrization of the circle to its traditional parametrization as $ (\cos \theta, \sin \theta) $?
+More specifically, we&rsquo;re going to ask the question:</p>
+<blockquote>
+<p>Given a point in the form $ (\cos \theta, \sin \theta) $ for some angle $ \theta $, what is the corresponding value of $ t $ that will generate that point in our rational parametrization?</p>
+</blockquote>
+<p>In fact, we&rsquo;re going to forget about the condition $ t \in \mathbb{Q} $ that we imposed to ensure our parametrization produced <em>only</em> rational points and instead extend the domain of $ t $ to $ t \in \R $.
+To take a more geometric perspective, we are trying to find the value $ t $ shown in the diagram below:</p>
+<p align='center'>
+  <img id='unitGeometric' width='50%' src='../../en/posts/assets/pythagorean/unitGeometric.png' alt='A point P on the circumference of the unit circle makes an angle theta with the origin. The point also makes an angle phi with the rational point O at negative one comma zero. The parameter t can be found by simply taking the tangent of phi.'/>
+</p>
+<p>As the distance from our rational point $ (-1, 0) $ to the origin is just 1, we can use the tangent of $ \varphi $ to find $ t $.
+Now all we have to do is express $ \varphi $ in terms of $ \theta $.
+If you&rsquo;re familiar with geometry, you&rsquo;ll notice that $ \varphi $ is simply an inscribed angle and is therefore half the angle $ \theta $.
+A quick proof of this theorem is shown below (for the case where one chord is the diameter, as it is in our diagram):</p>
+<p align='center'>
+  <img id='proof' width='50%' src='../../en/posts/assets/pythagorean/proof.png' alt='An inscribed angle is always half the measure of the subtended arc of a circle'/>
+  For some arc $ \overset{\large\frown}{AB} $, the inscribed angle $ \angle V $ is part of the larger isosceles triangle $ \triangle OVA $, since both $ V $ and $ A $ are equidistant from $ O $ by the definition of a circle.
+  Therefore $ \angle V + \angle A + \angle VOA = 180 \degree $.
+  Since $ \angle VOA = 180 \degree - \theta $ and $ \angle V = \angle A = \psi $, we have $ 2 \psi + (180 \degree - \theta) = 180 \degree $.
+  Solving for $ \psi $ gives $ \psi = \frac{\theta}{2} $.
+</p>
+<p>Therefore:</p>
+<p>$$ t = \tan \varphi = \tan \frac{\theta}{2} $$</p>
+<p>Now we can equate our two parametrizations:</p>
+<p>$$ (\cos \theta, \sin \theta) = \left( \frac{1 - t^2}{1 + t^2}, \frac{2t}{1 + t^2} \right) \space \textnormal{where} \space t = \tan \frac{\theta}{2} $$</p>
+<p>Okay, so what?
+We already knew that both parametrizations described the same object, so what&rsquo;s the point in equating them?
+For that matter, why didn&rsquo;t we go the other way around and ask to express our parametrization in terms of the common $ (\cos \theta, \sin \theta) $ by finding a value for $ \theta $ in terms of $ t $?
+As a matter of fact, that&rsquo;s what we&rsquo;ll do quite shortly, though in a slightly different way.
+However, the key reason that this equation is so important is because it gives us an alternate way to express the trigonometric functions $ \cos x $ and $ \sin x $:</p>
+<p>$$ \textnormal{Let: } t = \tan x/2 $$
+$$ \sin x = \frac{2t}{1 + t^2} $$
+$$ \cos x = \frac{1 - t^2}{1 + t^2} $$</p>
+<p>In other words, not only have we characterized the unit circle in terms of $ t $ but also the trigonometric functions of $ \sin $ and $ \cos $.
+We can now express the two most elementary trigonometric functions in terms of a single parameter $ t $, which in turn allows us to express any of the six fundamental trig functions in terms of $ t $ as well.
+This substitution is known as the &ldquo;Weierstrass substitution,&rdquo; hence the name of this section.</p>
+<p>To understand what this means and why it&rsquo;s so important, take the fairly complex trig identity:</p>
+<p>$$ \frac{\cos^{4} x -\sin^{4} x}{\cos^{2}x} = 1-\tan^{2}x $$</p>
+<p>Your first instinct is probably to try and factor to get rid of the annoying $ \sin x $ term and then hope everything simplifies to yield a $ \tan^{2}x $ term somehow.
+But what if <em>all three</em> trigonometric functions could be expressed in terms of a single variable $ t $?
+Then the problem simply becomes algebra: simplify the rational functions of $ t $ on both sides and show they&rsquo;re equivalent.
+Here&rsquo;s what it would look like if we expressed everything in terms of $ t $ using the Weierstrass substitution and then wrote the left and right sides as rational functions:</p>
+<p>$$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1-t^{2}\right)^{2}\left(1+t^{2}\right)^{2}} = 1-\frac{\left(2t\right)^{2}}{\left(1-t^{2}\right)^{2}} $$</p>
+<p>Combining the right side into one fraction yields:</p>
+<p>$$ \frac{\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}}{\left(1-t^{2}\right)^{2}} $$</p>
+<p>Clearing the denominator on the right side gives:</p>
+<p>$$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1+t^{2}\right)^{2}} = \left(1-t^{2}\right)^{2}-\left(2t\right)^{2} $$</p>
+<p>Clearing denominators yet again, this time on the left side, yields:</p>
+<p>$$ \left(1-t^{2}\right)^{4}-\left(2t\right)^{4} = \left(1+t^{2}\right)^{2}\left(\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}\right) $$</p>
+<p>At this point, we can simply expand all the binomials to get:</p>
+<p>$$ 1-4t^{2}-10t^{4}-4t^{6}+t^{8} = \left(1+2t^{2}+t^{4}\right)\left(1-6t^{2}+t^{4}\right) $$</p>
+<p>Performing long division proves that this is indeed the correct factorization of the polynomial on the left, and therefore the identity must be true.
+While this process does of course involve significantly more algebra than the traditional approach to proving trig identities, it is an immensely powerful tool in solving them because it provides a way to turn problems in trigonometry into problems of algebra, thereby allowing for a systematic approach to proving that a given identity is either true or false.</p>
+<p>As a matter of fact, these identities are extremely powerful tools in calculus as well.
+Say we wanted to evaluate the indefinite integral:</p>
+<p>$$ \int \csc x \space dx $$</p>
+<p>We could very well express this in terms of $ \sin x $ to get:</p>
+<p>$$ \int \frac{dx}{\sin x} $$</p>
+<p>but this gets us nowhere&mdash;that is until we use the Weierstrass substitution.
+To do that, however, we&rsquo;ll need to express $ x $ in terms of $ t $ to replace the $ dx $ term and integrate over $ t $.
+Recall from our definition of $ t $ that we have:</p>
+<p>$$ t = \tan x/2 \Rightarrow x = 2 \arctan t $$</p>
+<p>This is essentially the Weierstrass substitution in reverse: it gives us a way to write the rational parametrization in terms of the traditional $ (\cos \theta, \sin \theta) $ parametrization of the unit circle.
+Using this to rewrite our integral gives:</p>
+<p>$$ \int \frac{1 + t^2}{2t} \space d(2 \arctan t) = \int \frac{1 + t^2}{2t} \space \frac{d}{dt}(2 \arctan t) \space dt $$</p>
+<p>Multiplying by the derivative of $ 2 \arctan t $ yields a rational expression in terms of $ t $ that we can integrate:</p>
+<p>$$ \int \frac{\cancel{1 + t^2}}{2t} \cdot \frac{2}{\cancel{1+t^{2}}} \space dt  = $$
+$$ \int \frac{\cancel{2}}{\cancel{2}t} \space dt = \int \frac{dt}{t} $$</p>
+<p>Aha! We&rsquo;ve reduced the problem to a common integral. We can now integrate and substitute $ t = \tan x/2 $ to get:</p>
+<p>$$ \int \frac{dt}{t} = \ln |t| = \ln |\tan x/2| $$</p>
+<p>Viola! The Weierstrass substitution transformed the integral into a common form over which we could integrate and then substitute $ t = \tan x/2 $ to get a solution.</p>
+<h2 id="the-primitives" class="relative group">The Primitives <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-primitives" aria-label="Anchor">#</a></span></h2>
+<p>At long last, we return again to the question of finding all possible Pythagorean triples.
+We&rsquo;ve discussed Fermat curves and the peculiarity of the Pythagorean theorem, the rational parametrization of conics, and most recently the Weierstrass substitution, and we&rsquo;re finally able to solve the problem of finding all Pythagorean triples.</p>
+<p>We start by noting the most obvious way to generate a new Pythagorean triple: if we have some triple $ (A, B, C) $, then we can simply generate a new triple $ (tA, tB, tC) $ for some integer $ t $.
+However, these triples aren&rsquo;t all that useful and are ultimately the result of the &ldquo;base&rdquo; triple $ (A, B, C) $.
+In other words, if we can find all of the triples $ (A, B, C) $ where $ A, B, C $ have no common factor (that is to say $ \gcd(A, B, C) = 1 $), then we can find all the other triples simply by multiplying by an integer $ t $.
+For now we&rsquo;ll focus our attention on the &ldquo;base&rdquo; triples, which we&rsquo;ll term &ldquo;primitive&rdquo; Pythagorean triples.</p>
+<p>As a final restriction, we&rsquo;ll note an interesting property that all primitive Pythagorean triples share: they always contain one even and one odd $ A $ or $ B $ term.
+To prove this, we&rsquo;re going to have to leverage a bit of elementary number theory.
+The first case is that both $ A $ and $ B $ are even.
+We seek to force a contradiction that would require $ A $, $ B $, and $ C $ to have a common factor.
+If we consider this scenario under modulo $ 2 $, we get:</p>
+<p>$$ A^2 + B^2 \equiv 0^2 + 0^2 = 0 \equiv C^2 \mod 2 $$
+$$ A \equiv B \equiv C \equiv 0 \mod 2 $$</p>
+<p>That last part follows from the fact that if $ 2 \mid C^2 $, since $ 2 $ is prime, we must also have $ 2 \mid C $.
+Thus, we&rsquo;ve proven that $ A $, $ B $, and $ C $ must all be even, therefore meaning that the triple is not primitive (all are divisible by $ 2 $), and thus ruling out that possibility.
+The next case requires proving that it is impossible for both $ A $ and $ B $ to be odd. We consider the situation under modulo $ 4 $:</p>
+<p>$$ A^2 + B^2 \equiv \set{ 1, 3 }^2 + \set{ 1, 3 }^2 \equiv 1 + 1 = 2 \equiv C^2 \mod 4 $$</p>
+<p>* <em>The set notation $ \set{} $ is used here to indicate all possibilities of congruence</em></p>
+<p>What the above equation tells us is that $ C^2 $ must be divisible by 2, but not by 4.
+Yet if $ C^2 $ is divisible by 2, since 2 is prime it must also divide $ C $ itself.
+But if 2 divides $ C $, then $ 2 \times 2 $ divides $ C^2 $ which thereby implies that $ 4 $ divides $ C^2 $, the contradiction we were looking for.
+Thus, every primitive Pythagorean triple must have one even and one odd $ A $ or $ B $.
+For the rest of this section we will assume $ A $ to be odd and $ B $ to be even.</p>
+<p>As pointed out in the first section, any Pythagorean triple $ (A, B, C) $ can be transformed onto the unit circle as the point $ (x, y) = (A/C, B/C) $ (primitive triples and their multiples are represented as the same point).
+What this means is that every possible primitive Pythagorean triple corresponds to a unique rational point on the unit circle; if we find all the rational points on the unit circle, we&rsquo;ve found all the Pythagorean triples.
+But we know how to do that!</p>
+<p>At this point, we could certainly use the rational parametrization of the unit circle we derived earlier to find all the Pythagorean triples.
+However, we&rsquo;re going to restrict ourselves to generating only the <em>primitive</em> Pythagorean triples.
+Notice also that if we were to simply use the rational parametrization as is, we would end up with a lot of non-primitive triples for $ |t| &gt; 1 $ and a lot of fractional ones for $ |t| &lt; 1 $ (which aren&rsquo;t really triples at all since $ A, B, C \notin \Z $).</p>
+<p>The key insight is to let $ t = p/q $ for some integers $ p $ and $ q $.
+Expressing $ t $ in &ldquo;rational&rdquo; form allows us to express the result in a similar rational form, from which we can generate a non-fractional Pythagorean triple.
+Substituting $ t = p/q $ into the rational parametrization of the unit circle gives:</p>
+<p>$$ \left(\frac{q^{2}-p^{2}}{q^{2}+p^{2}},\frac{2pq}{q^{2}+p^{2}}\right) $$</p>
+<p>We quickly see that for all $ p &lt; q $, we get a series of three integers which is a Pythagorean triple: $ (q^2-p^2, 2pq, q^2+p^2) $.
+Note that $ p &lt; q $ is not really a limitation as it only serves to ensure that all the triples we generate have positive values for $ A, B, C $.</p>
+<p>Now all that&rsquo;s left is to rigorously prove that the above Pythagorean triple is always primitive no matter the choice of $ p $ and $ q $.
+However, since we&rsquo;re expressing $ t $ in simplest form so as to avoid duplicates, $ p $ and $ q $ must be relatively prime, which is the first restriction we will impose before we carry out the proof.
+The last restriction is that, in order for $ A $ to be odd like we assumed, we must have $ 2 \nmid (q^2 - p^2) $, which forces one of $ p $ and $ q $ to be even and the other to be odd.
+Summing up all our restrictions, we have:</p>
+<ol>
+<li><strong>Domain</strong>: $ p, q \in \mathbb{Z}^{+} $</li>
+<li><strong>Positivity</strong>: $ p &lt; q $</li>
+<li><strong>Relative Primality</strong>: $ \gcd(p, q) = 1 $</li>
+<li><strong>Even/Odd Split</strong>: $ (2 \mid p \cap 2 \nmid q) \cup (2 \nmid p \cap 2 \mid q) $</li>
+</ol>
+<p>Now we proceed to prove that the triple $ (q^2-p^2, 2pq, q^2+p^2) $ is indeed primitive.
+We begin without assuming that this generated triple is primitive.
+Instead, let it be a constant multiple $ \lambda $ of some primitive triple $ (A, B, C) $ such that:</p>
+<p>$$ \lambda A = q^2 - p^2 $$
+$$ \lambda B = 2pq $$
+$$ \lambda C = q^2 + p^2 $$</p>
+<p>If we can show that $ \lambda = 1 $, then we&rsquo;ve successfully proven that the triple is primitive, since that would mean our primitive triple $ (A, B, C) $ exactly equals the desired values.
+Since $ A, B, C \in \mathbb{Z} $, $ \lambda $ must divide the terms on the right hand side of these expressions.
+Thus, we have:</p>
+<p>$$ \lambda \mid q^2 - p^2 $$
+$$ \lambda \mid 2pq $$
+$$ \lambda \mid q^2 + p^2 $$</p>
+<p>The first and third expressions are particularly interesting; since $ \lambda $ divides them both, it must also divide their sum and difference.
+This gives us:</p>
+<p>$$ \lambda \mid 2q^2 $$
+$$ \lambda \mid 2p^2 $$</p>
+<p>If $ \lambda $ were to divide both $ p^2 $ and $ q^2 $, then at least one of its prime factors would have to be shared across $ p $ and $ q $; but this contradicts our third assumption that $ p $ and $ q $ must be relatively prime.
+Thus $ \lambda $ must divide $ 2 $.
+This in turn leaves us with only two options for $ \lambda $, which greatly narrows down the space of possible values to just the factors of two: $ 1, 2 $.</p>
+<p>We now assume that $ \lambda = 2 $ and search for a contradiction.
+We know that $ A $ is odd, so we must have $ A \equiv 1 \space \mathrm{mod}\ 2 $.
+This gives:</p>
+<p>$$ \lambda A = 2A \equiv 2 \mod 4 $$</p>
+<p>Aha! We&rsquo;ve seen this before!
+In our proof that both $ A $ and $ B $ could not be odd, we showed that it is impossible for the square of an integer to be congruent to $ 2 \space \mathrm{mod}\ 4 $.
+We have a similar definition for $ \lambda A $ that we can exploit:</p>
+<p>$$ \lambda A = q^2 - p^2 \equiv 2 \mod 4 $$</p>
+<p>Instead of proving that the square of an integer cannot be congruent to $ 2 \space \mathrm{mod}\ 4 $, we need to prove that the <em>difference</em> of the squares of two integers cannot be congruent to $ 2 \space \mathrm{mod}\ 4 $.
+The process is nearly identical; we have*:</p>
+<p>$$ q^2 - p^2 \equiv \set{0,&hellip;,3}^2 - \set{0,&hellip;,3}^2 \equiv \set{0,1} - \set{0,1} = \set{0,-1,1} \mod 4 $$</p>
+<p>*<em>We could have also applied the restriction that only one of $ p $ and $ q $ is even, but this is not necessary to complete the proof</em></p>
+<p>When we simplify the set so as to contain only positive integers the contradiction is immediately apparent:</p>
+<p>$$ 2 \notin \set{0,1,3} $$</p>
+<p>Thus, the difference of the squares of two integers cannot be congruent to $ 2 \space \mathrm{mod}\ 4 $, and in turn $ \lambda $ cannot equal $ 2 $, which means $ \lambda = 1 $, as desired.</p>
+<p>✨ We&rsquo;ve proven that the triple $ (q^2-p^2, 2pq, q^2+p^2) $ is primitive!</p>
+<h2 id="on-the-cartesian-plane" class="relative group">On the Cartesian Plane <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#on-the-cartesian-plane" aria-label="Anchor">#</a></span></h2>
+<p>At long last, we finally have a generative algorithm for finding every possible primitive Pythagorean triple, which in turn gives us every Pythagorean triple by multiplying the entire triple by an integer constant.
+Our algorithm essentially does the following:</p>
+<ol>
+<li>Pick some integer $ q \in \mathbb{Z}^{+} $</li>
+<li>Pick some positive integer $ p $ of opposite parity to $ q $ where $ p &lt; q \space \cap \space \gcd(p, q) = 1 $</li>
+<li>Generate the primitive triple $ (A, B, C) = (q^2 - p^2, 2pq, q^2 + p^2) $</li>
+<li>Multiply by a constant $ k \in \mathbb{Z}^{+} $ to generate all derived triples $ (kA, kB, kC) $</li>
+</ol>
+<p>To implement this in Python code, we&rsquo;re going to stick to generating only the primitive triples (steps 1-3) over a given range for $ p $ and $ q $.
+First, we code the generator:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span>
+</span></span></code></pre></div><p>Now, we run two loops: one where we test for all primitive triples with <code>p</code> even and <code>q</code> odd and the other where the reverse is true.
+We&rsquo;ll need the <code>math</code> library to check for the greatest common divisor and then write two nested for loops which traverse a range from <code>1</code> to some upper bound <code>limit</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># skips all even integers (q is odd)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># skips all odd integers (p is even)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># skips all odd integers (q is even)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># skips all even integers (p is odd)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</span></span></code></pre></div><p>Putting this all together, we have:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Write limit here!</span>
+</span></span><span class="line"><span class="cl"><span class="n">limit</span> <span class="o">=</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</span></span></code></pre></div><p>Running this with <code>limit = 100</code> gives triples as obscure as $ (5811, 10340, 11861) $ and some with a difference of just $ 1 $ between two of the numbers, like $ (195, 19012, 19013) $.
+As a final step, we&rsquo;re going to plot a finite number of these triples on the Cartesian plane with coordinates $ (A, B) $ and distance $ C $ from the origin, which will be shown with a line from the origin to each point.
+We&rsquo;ll use <code>limit=20</code>, which gives us $ 78 $ distinct triples.
+At this point, we turn to <code>matplotlib</code> to handle the plotting aspect of our algorithm.
+We then modify our original code to store all the triples to a list instead of immediately printing them:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">collections</span> <span class="k">as</span> <span class="n">mc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">limit</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">triples</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span> <span class="o">=</span> <span class="n">q</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">triples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">triples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+</span></span></code></pre></div><p>We then create a <code>matplotlib</code> figure that we can add to.
+We will define two lists to store the coordinates of each triple and then a third list to store a collection of line segments that we turn into a <code>matplotlib.collections.LineCollection</code> object:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">triple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">triples</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">triple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">triples</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">lines</span> <span class="o">=</span> <span class="p">[[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl"><span class="n">figLines</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">LineCollection</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div><p>We now add our line collection to a subplot and create a scatter plot which holds our points.
+After some formatting to position the axes, the final part of our code looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;All primitive Pythagorean triples&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">figLines</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">bottom</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>🎊 Finally, we can see the results of our algorithm!
+Running the full program and capturing the result produces a truly outstanding final plot, revealing an interesting structure to the Pythagorean triples:</p>
+<p align='center'>
+  <em>Plotted with style <a href="https://github.com/garrettj403/SciencePlots">SciencePlots</a></em>
+  <img id='pythagorean' width='75%' src='../../en/posts/assets/pythagorean/pythagorean.png' alt='Pythagorean triples cluster near the origin, expanding radially in various groups'/>
+  Note that because we are assuming $ A $ to be odd in all these triples, we don't plot duplicates (e.g. $ (4, 3, 5) $ after $ (3, 4, 5) $), which explains the lack of symmetry over the line $ y = x $.
+</p>
+<p>Here&rsquo;s an interactive demo where you can set different limit values and see the results change:</p>
+<div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
+  <iframe id="primitives" src="../../en/posts/interactive/pythagorean/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<p>For the grand finale, here&rsquo;s what plotting the first $ 2000 $ primitive Pythagorean triples looks like (with <code>limit=100</code> and no lines to reduce clutter):</p>
+<p align='center'>
+  <img id='pythagorean100' width='75%' src='../../en/posts/assets/pythagorean/pythagorean100.png' alt='The pattern from last image is very much apparent; triples cluster near the origin and, as the coordinates increase in magnitude, they appear to follow certain curved paths extending radially across the first quadrant of the Cartesian plane.'/>
+  ✨ 🍰 ✨
+</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  // KaTeX
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // customized options
+        // • auto-render specific keys, e.g.:
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        // • rendering keys, e.g.:
+        throwOnError : false
+      });
+  });
+</script>
+<script>
+  // Dark embed toggle
+  let dark = false
+  let IDS = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
+  let imgs = ['proof', 'pythagorean', 'pythagorean100', 'unitGeometric']
+  let imgSrc = ['../../en/posts/assets/pythagorean/proof.png', '../../en/posts/assets/pythagorean/pythagorean.png', '../../en/posts/assets/pythagorean/pythagorean100.png', '../../en/posts/assets/pythagorean/unitGeometric.png']
+  let imgSrcInv = ['../../en/posts/assets/pythagorean/proofInv.png', '../../en/posts/assets/pythagorean/pythagoreanInv.png', '../../en/posts/assets/pythagorean/pythagorean100Inv.png', '../../en/posts/assets/pythagorean/unitGeometricInv.png']
+  let makeDark = () => {
+    for (let i = 0; i < IDS.length; i++) {
+      document.getElementById(IDS[i]).contentWindow.toggleDark()
+    }
+    for (let i = 0; i < imgs.length; i++) {
+      document.getElementById(imgs[i]).src = imgSrcInv[i]
+    }
+  }
+  let makeLight = () => {
+    for (let i = 0; i < IDS.length; i++) {
+      document.getElementById(IDS[i]).contentWindow.toggleLight()
+    }
+    for (let i = 0; i < imgs.length; i++) {
+      document.getElementById(imgs[i]).src = imgSrc[i]
+    }
+  }
+  let detectDark = () => {
+    let isDark = document.querySelector('html').classList.contains('dark')
+    if (isDark != dark) {
+      try {
+        if (isDark) makeDark()
+        else makeLight()
+        dark = isDark
+      } catch (e) {}
+    }
+    setTimeout(detectDark, 5000)
+  }; detectDark()
+</script>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          quantum9innovation (q9i)
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Software is an art form</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="mailto:dev.quantum9innovation@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://dev.to/quantum9innovation"
+          target="_blank"
+          aria-label="Dev"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M120.12 208.29c-3.88-2.9-7.77-4.35-11.65-4.35H91.03v104.47h17.45c3.88 0 7.77-1.45 11.65-4.35 3.88-2.9 5.82-7.25 5.82-13.06v-69.65c-.01-5.8-1.96-10.16-5.83-13.06zM404.1 32H43.9C19.7 32 .06 51.59 0 75.8v360.4C.06 460.41 19.7 480 43.9 480h360.2c24.21 0 43.84-19.59 43.9-43.8V75.8c-.06-24.21-19.7-43.8-43.9-43.8zM154.2 291.19c0 18.81-11.61 47.31-48.36 47.25h-46.4V172.98h47.38c35.44 0 47.36 28.46 47.37 47.28l.01 70.93zm100.68-88.66H201.6v38.42h32.57v29.57H201.6v38.41h53.29v29.57h-62.18c-11.16.29-20.44-8.53-20.72-19.69V193.7c-.27-11.15 8.56-20.41 19.71-20.69h63.19l-.01 29.52zm103.64 115.29c-13.2 30.75-36.85 24.63-47.44 0l-38.53-144.8h32.57l29.71 113.72 29.57-113.72h32.58l-38.46 144.8z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/quantum9innovation"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://gitlab.com/thebluedev"
+          target="_blank"
+          aria-label="Gitlab"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M510.486,284.482l-27.262-83.963c.012.038.016.077.028.115-.013-.044-.021-.088-.033-.132v-.01L429.1,33.871a21.328,21.328,0,0,0-20.445-14.6A21.038,21.038,0,0,0,388.466,34L337.094,192.154H175L123.533,33.989A21.033,21.033,0,0,0,103.35,19.274h-.113A21.467,21.467,0,0,0,82.86,34L28.888,200.475l-.008.021v0c-.013.042-.019.084-.033.127.012-.038.017-.077.029-.115L1.514,284.482a30.6,30.6,0,0,0,11.117,34.283L248.893,490.427c.035.026.074.041.109.067.1.072.2.146.3.214-.1-.065-.187-.136-.282-.2l0,0c.015.012.033.02.05.031s.027.015.041.024l.006,0a11.992,11.992,0,0,0,1.137.7c.054.03.1.068.157.1l0,0c.033.016.064.038.1.054s.053.02.077.032.038.015.056.023c.044.021.092.034.136.057.205.1.421.178.633.264.2.082.389.177.592.248l.025.011c.034.012.064.028.1.04s.083.032.125.046l.05.012c.053.016.11.024.163.039.019.006.042.009.063.015.284.086.579.148.872.213.115.026.225.062.341.083.017,0,.032.009.05.012.038.008.073.021.112.027.062.011.122.031.186.04.049.007.1,0,.151.012h.033a11.918,11.918,0,0,0,1.7.136h.019a11.971,11.971,0,0,0,1.7-.136h.033c.05-.008.1,0,.153-.012s.124-.029.187-.04c.038-.006.073-.019.11-.027.017,0,.032-.009.049-.012.118-.023.231-.059.349-.084.288-.064.578-.126.861-.21.019-.006.039-.008.059-.014.055-.017.113-.024.169-.041.016-.006.035-.007.051-.012.044-.013.086-.032.129-.047s.063-.028.1-.041l.026-.01c.214-.076.417-.175.627-.261s.394-.154.584-.245c.047-.023.1-.036.142-.059.018-.009.04-.015.058-.024s.053-.02.078-.033.068-.04.1-.056l0,0c.056-.028.106-.069.161-.1a12.341,12.341,0,0,0,1.132-.695c.029-.02.062-.035.092-.056.008-.006.017-.009.024-.015.035-.026.076-.043.11-.068l236.3-171.666A30.6,30.6,0,0,0,510.486,284.482ZM408.8,49.48l46.342,142.674H362.46Zm-305.6,0,46.428,142.675H56.948ZM26.817,299.251a6.526,6.526,0,0,1-2.361-7.308l20.34-62.42L193.835,420.6Zm38.245-82.972h92.411L223.354,419.22Zm183.416,273.83c-.047-.038-.092-.079-.138-.118-.009-.008-.018-.018-.028-.026-.091-.075-.18-.152-.268-.231-.172-.15-.341-.3-.5-.462.014.012.029.022.043.035l.055.046a12.191,12.191,0,0,0,1.091.929l.012.011c.018.013.033.03.051.045C248.689,490.263,248.58,490.19,248.478,490.109Zm7.514-48.482L217.226,322.21,182.839,216.279H329.253Zm7.935,48.107c-.091.079-.178.157-.27.233l-.032.028c-.047.038-.091.079-.136.117-.1.08-.209.152-.313.229.018-.013.033-.032.053-.044l.009-.009a11.69,11.69,0,0,0,1.086-.926c.014-.013.03-.024.044-.036s.038-.03.054-.047C264.262,489.435,264.1,489.586,263.927,489.734Zm90.7-273.455h92.4l-18.91,24.23-139.468,178.7Zm130.567,82.967L318.2,420.563,467.284,229.538l20.258,62.393A6.528,6.528,0,0,1,485.189,299.246Z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://q9i.medium.com"
+          target="_blank"
+          aria-label="Medium"
+          rel="me noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;quote=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://twitter.com/intent/tweet/?url=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;text=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Tweet on Twitter"
+          aria-label="Tweet on Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://tootpick.org/#text=https://quantum9innovation.github.io/axiom/posts/pythagorean/%20Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Toot on Mastodon"
+          aria-label="Toot on Mastodon"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;description=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Pin on Pinterest"
+          aria-label="Pin on Pinterest"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;resubmit=true&amp;title=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;title=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=https://quantum9innovation.github.io/axiom/posts/pythagorean/&amp;subject=Finding%20Every%20Possible%20Pythagorean%20Triple"
+          title="Send via email"
+          aria-label="Send via email"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></a
+        >
+      
+    
+  </section>
+
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/axiom/posts/initial/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Initial</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-02-22 11:43:17 -0800 PST">February 22, 2022</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            Licensed under <a
+  href="https://creativecommons.org/licenses/by-sa/4.0/"
+  
+  target="_blank" rel="noreferrer noopener"
+>CC BY-SA 4.0</a>
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div
+        class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+      >
+        <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+          <div
+            class="flex h-12 w-12 items-center justify-center dark:hidden"
+            title="Switch to dark appearance"
+          >
+            <span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div
+            class="hidden h-12 w-12 items-center justify-center dark:flex"
+            title="Switch to light appearance"
+          >
+            <span class="relative inline-block align-text-bottom px-1 icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>
