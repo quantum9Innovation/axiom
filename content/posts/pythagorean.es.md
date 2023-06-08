@@ -3,7 +3,7 @@ title: "Encontrar cada triple pitagórico posible"
 description: "Cómo encontrar, generar y visualizar cada triple pitagórico"
 summary: "Cómo encontrar, generar y visualizar cada triple pitagórico: un viaje del Último Teorema de Fermat, encontrar puntos racionales en las cónicas, la sustitución de Weierstrass y mucho más."
 date: 2022-06-13T01:10:17.545Z
-lastmod: 2022-06-30T23:00:19.892Z
+lastmod: 2023-06-06T03:38:03.096Z
 categories:
   - "Teoría de números"
   - "Geometría algebraica"
@@ -22,6 +22,8 @@ tags:
 Cómo encontrar, generar y visualizar cada triple pitagórico
 {{< /lead >}}
 
+Los triples pitagóricos son conjuntos de tres números enteros que satisfacen una relación muy específica: dos de esos enteros forman la base de un triángulo rectángulo, y el tercero es la hipotenusa. Hay muchos triples comunes, como $ (3, 4, 5) $, o $ (5, 12, 13) $, pero cuando aumentan las cifras, encontrar estos triples se convierte en una tarea difícil. ¿Es posible generar estos triples por un proceso matemático? Para resolver esta cuestión, empezamos por examinar qué hace única la relación entre números en un triple pitagórico.
+
 ## Último Teorema de Fermat
 
 Para resolver cualquier tipo de problema matemático, a menudo es útil relacionarlo con problemas más generales que pueden proporcionar un poco de contexto para guiar el proceso de encontrar una solución. El problema de encontrar todos los triples pitagóricos posibles es un buen ejemplo de esto. Fundamentalmente estamos intentando despejar $ A $, $ B $ y $ C $ tal que:
@@ -30,9 +32,9 @@ $$ A^2 + B^2 = C^2 \space \textnormal{donde} \space A, B, C \in \Z $$
 
 De hecho, hay infinidad de $ A $, $ B $ y $ C $ tal que esta ecuación es cierta. Sin embargo, una peculiaridad más sutil es que el teorema pitagórico es un caso muy especial de un problema mucho mayor donde esta propiedad no existe. Si consideramos el mismo problema de despejar $ A $, $ B $ y $ C $, pero simplemente cambiamos el exponente y pedimos soluciones enteras:
 
-$$ A^n + B^n = C^n \space \textnormal{donde} \space A, B, C, n \in \Z \space \cap \space n \ge 2 $$
+$$ A^n + B^n = C^n \space \textnormal{donde} \space A, B, C, n \in \Z \space \cap \space n > 2 $$
 
-no hay soluciones infinitas, sino *cero* soluciones enteras en el caso donde $ n > 2 $. Además, hay cero soluciones *no triviales*, es decir, que hay cero soluciones donde todos $ A, B, C \neq 0 $. Este es el Último Teorema de Fermat, que declara que la ecuación $ A^n + B^n = C^n $ no tiene soluciones enteras si $ n > 2 $. Esta simple declaración es engañosamente difícil de probar; tardó más de tres siglos hasta que una prueba formal se presentó tras la propuesta inicial de Fermat en 1637 dC.
+no hay soluciones infinitas, sino *cero* soluciones no triviales. Es decir que hay cero soluciones donde todos $ A, B, C \neq 0 $. Este es el Último Teorema de Fermat, que declara que la ecuación $ A^n + B^n = C^n $ no tiene soluciones enteras si $ n > 2 $. Esta simple declaración es engañosamente difícil de probar; tardó más de tres siglos hasta que una prueba formal se presentó tras la propuesta inicial de Fermat en 1637 dC.
 
 Aunque probar matemáticamente que la declaración es cierta es bastante difícil, es muy sencillo ver sus consecuencias cuando estudiamos este problema de una perspectiva visual. Para hacer eso, necesitaremos graficar esta ecuación como un tipo de curva en el plano cartesiano. Aunque podríamos continuar a graficar esta ecuación en tres dimensiones, podemos hacer una sustitución ingeniosa para graficar la curva en dos dimensiones. Si dividimos ambos lados por $ C^n $, obtenemos:
 
@@ -250,7 +252,7 @@ $$ \frac{\left(1-t^{2}\right)^{4}-\left(2t\right)^{4}}{\left(1+t^{2}\right)^{2}}
 
 Al eliminar los denominadores una vez más, ahora en el lado izquierdo, la ecuación es:
 
-$$ \left(1-t^{2}\right)^{4}-\left(2t\right)^{4} = \left(1+t^{2}\right)^{2}\left(\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}\\right) $$
+$$ \left(1-t^{2}\right)^{4}-\left(2t\right)^{4} = \left(1+t^{2}\right)^{2}\left(\left(1-t^{2}\right)^{2}-\left(2t\right)^{2}\ \right) $$
 
 En este momento, simplemente podemos ampliar todos los binomios para obtener:
 
@@ -477,7 +479,7 @@ plt.show()
 :confetti_ball: Por fin, ¡podemos ver los resultados del algoritmo! Al ejecutar todo el programa y capturar el resultado, se produce un gráfico final verdaderamente extraordinario, mostrando una estructura interesante de los triples pitagóricos:
 
 <p align='center'>
-  <em>Graficado con el estilo <a href="https://github.com/garrettj403/SciencePlots">SciencePlots</a> (inglés: gráficos de ciencia)</em>
+  <em>Graficado con el estilo <a href='https://github.com/garrettj403/SciencePlots'>SciencePlots</a></em>
   <img id='pythagorean' width='75%' src='../../../en/posts/assets/pythagorean/pythagorean.png' alt='Los triples pitagóricos se apiñan cerca del origen, expandiéndose radialmente en varios grupos'/>
   Observe que porque asumimos que $ A $ era impar en todos estos triples, no graficamos duplicados (p. ej. $ (4, 3, 5) $ tras $ (3, 4, 5) $), que explica la falta de simetría sobre la línea $ y = x $.
 </p>
@@ -520,7 +522,7 @@ Para el gran final, aquí está el resultado de graficar los primeros $ 2000 $ t
   let dark = false
   let IDS = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
   let imgs = ['proof', 'pythagorean', 'pythagorean100', 'unitGeometric']
-  let imgSrc = ['../../../en/posts/assets/pythagorean/proof.png', '../../../en/posts/assets/pythagorean/pythagorean.png', '../../../en/posts/assets/pythagorean/pythagorean100.png', '../../../en/posts/assets/pythagorean/unitGeometric.png']
+  let imgSrc = ['../../../en/posts/assets/pythagorean/proof.png', '../../en/posts/assets/pythagorean/pythagorean.png', '../../../en/posts/assets/pythagorean/pythagorean100.png', '../../../en/posts/assets/pythagorean/unitGeometric.png']
   let imgSrcInv = ['../../../en/posts/assets/pythagorean/proofInv.png', '../../../en/posts/assets/pythagorean/pythagoreanInv.png', '../../../en/posts/assets/pythagorean/pythagorean100Inv.png', '../../../en/posts/assets/pythagorean/unitGeometricInv.png']
   let makeDark = () => {
     for (let i = 0; i < IDS.length; i++) {
