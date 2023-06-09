@@ -9,6 +9,7 @@ draft: false
 ¡Bienvenidos al Axioma!
 
 ---
+{{< katex >}}
 
 ¡Qué mensaje tan genial! :tada:\
 Este sitio será el nuevo blog para [@quantum9innovation](https://github.com/quantum9innovation).
@@ -16,8 +17,3 @@ Este sitio será el nuevo blog para [@quantum9innovation](https://github.com/qua
 ¡También tiene matemáticas!\
 La integral elíptica del segundo grado:
 $$ 4a\int_0^{\pi/2} \sqrt{1-k^2\sin^2 t} ~ dt $$
-
-<script src="../../../en/assets/js/mantequilla.js"></script>
-<script>
-  katex()
-</script>
