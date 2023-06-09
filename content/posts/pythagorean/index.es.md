@@ -16,8 +16,6 @@ tags:
   - "teorema pitagórico"
 ---
 
-<link type='text/css' rel='stylesheet' href='../../../en/assets/css/syntax.css'></style>
-
 {{< lead >}}
 Cómo encontrar, generar y visualizar cada triple pitagórico
 {{< /lead >}}
@@ -55,7 +53,7 @@ Este gráfico, como todos los demás en este artículo, es interactivo. Arrastre
 {{< /alert >}}
 
 <div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
-  <iframe id="fermat" src="../../../en/posts/interactive/pythagorean/fermat.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="fermat" src="interactive/fermat.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 Cuando aumentamos el valor de $ n $, las curvas se parecen a una de las dos familias de curvas mostradas arriba, dependiendo de si $ n $ es par o impar. Los valores más grandes de $ n $ resultan en esquinas más cerradas, causando la curva a parecerse más a un cuadrado. Ahora, volvemos al caso donde $ n = 2 $ y preguntamos ¿qué hace este caso distinto a todos los demás?
@@ -89,7 +87,7 @@ $$ A x^2 + B y^2 + C xy + D x + E y + F = 0 $$
 dados algunos coeficientes $ A, B, C, D, E, F $ donde $ AB \neq 0 $. En otras palabras, las cónicas solamente son curvas algebraicas (a menudo llamadas «variedades algebraicas») de grado $ 2 $. Aquí está el gráfico de una cónica arbitraria $ \mathcal{C} $: $ x^2 + y^2 + xy + x + y - 1 = 0 $:
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="ellipse" src="../../../en/posts/interactive/pythagorean/ellipse.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="ellipse" src="interactive/ellipse.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 Con respecto a nuestro problema, asumiremos que $ \mathcal{C} $ contiene algún punto racional $ \mathcal{O} $ que conozcamos. En este caso, $ \mathcal{O} $ es el punto $(-1, 1) $. Lo que vamos a hacer es crear una función generadora para cada otro punto racional en $ \mathcal{C} $ simplemente por conocer $ \mathcal{O} $.
@@ -127,7 +125,7 @@ Aquí está un ejemplo:
 <br>
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="example" src="../../../en/posts/interactive/pythagorean/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="example" src="interactive/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 La línea racional $ y = -2x - 1 $ a través de $ \mathcal{O} $ cruza la elipse otra vez, produciendo un segundo punto racional $ \left( \frac{1}{3}, -\frac{5}{3} \right) $. Visualmente, es fácil ver que si queremos encontrar *todos* los puntos racionales en $ \mathcal{C} $, necesitamos considerar cada línea racional a través de $ \mathcal{O} $ para que recorramos el plano entero. Matemáticamente, se sabe que, dados dos puntos racionales, la recta entre ellos debe tener una pendiente racional, porque su pendiente puede reescribirse como el cociente de sus diferencias de $ x $ e $ y $, que alternadamente son racionales. Si trazamos una recta para cada posible pendiente racional, inevitablemente encontraremos todos los puntos racionales.
@@ -146,7 +144,7 @@ El algoritmo es el siguiente:
 4. Despejar la intersección $ \ell \cap \mathcal{C} $, que da el deseado punto racional $ P $ en $ \mathcal{C} $
 
 <div style="position: relative; width: 75%; padding-top: 100%; margin: auto;">
-  <iframe id="projection" src="../../../en/posts/interactive/pythagorean/projection.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="projection" src="interactive/projection.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 <p align='center'>
   $ f(t) $ se grafica en verde; $ t $ determina el punto $ Q $ (de púrpura) en $ f $; la línea que conecta $ Q $ y $ \mathcal{O} $ es azul y cruza la cónica en el punto $ P $
@@ -159,7 +157,7 @@ De hecho, estamos «proyectando» la cónica $ \mathcal{C} $ en $ f(t) $, que al
 ¡Genial! :tada: El trabajo duro está (principalmente) hecho. Nosotros *necesitábamos* parametrizar racionalmente el círculo unitario, pero en vez de eso, desarrollamos una parametrización racional para cada cónica. Ahora lo único que tenemos que hacer es inventar una manera eficiente de ejercer lo que hemos aprendido desde la sección anterior al círculo unitario.
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="circle" src="../../../en/posts/interactive/pythagorean/circle.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="circle" src="interactive/circle.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 Para parametrizar racionalmente una cónica, necesitamos dos cosas: un punto racional $ \mathcal{O} $ y una línea racional en la que se puede proyectar la cónica. En el caso del círculo unitario, tenemos cuatro «obvios» puntos racionales: $ (\pm 1, 0), (0, \pm 1) $. Para razones que se aclararán más tarde, escojamos el punto $ (-1, 0) $ para ser $ \mathcal{O} $. Para la línea racional de proyección, tenemos infinidad de opciones. Sin embargo, aunque nuestro ejemplo anterior mostraba la línea racional fuera de la cónica, no es necesario que la línea de proyección no cruce la cónica misma. A veces, las mejores opciones son las más obvias; en nuestro caso, esas son los ejes $ x $ e $ y $ ellos mismos. Vemos inmediatamente que el eje $ x $ no vale, ya que sin importar qué punto escojamos, la línea desde $ (-1, 0) $ tendrá una pendiente de $ 0 $, y por lo tanto solamente cruzará el círculo en el punto $ (1, 0) $. El eje $ y $ queda como la siguiente opción más fácil.
@@ -191,7 +189,7 @@ Vemos inmediatamente que, dado un valor de $ t \in \mathbb{Q} $, debemos obtener
 Aunque nuestro resultado es obviamente importante algebraicamente, también es importante examinarlo de una perspectiva geométrica.
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="weierstrass" src="../../../en/posts/interactive/pythagorean/weierstrass.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="weierstrass" src="interactive/weierstrass.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 <p align='center'>
@@ -206,19 +204,20 @@ Antes, se insinuó que, de los cuatro puntos racionales que podríamos haber ele
 
 De hecho, vamos a olvidarnos de la condición $ t \in \mathbb{Q} $ que impusimos para asegurar que la parametrización producía *solamente* puntos racionales y, en vez de eso, vamos a extender el dominio de $ t $ a $ t \in \R $. Tomando una perspectiva más geométrica, estamos intentando a despejar el valor $ t $ mostrado en el diagrama de abajo:
 
-<p align='center'>
-  <img id='unitGeometric' width='50%' src='../../../en/posts/assets/pythagorean/unitGeometric.png' alt='Un punto P en la circunferencia del círculo unitario forma un ángulo theta con el origen. El punto también forma un ángulo fi con el punto racional O en negativo uno coma cero. El parámetro t se puede despejar simplemente evaluando la tangente de fi.'/>
-</p>
+{{< fig
+    id="unitGeometric"
+    src="assets/unitGeometric.png"
+    alt="Un punto P en la circunferencia del círculo unitario forma un ángulo theta con el origen. El punto también forma un ángulo fi con el punto racional O en negativo uno coma cero. El parámetro t se puede despejar simplemente evaluando la tangente de fi."
+    >}}
 
 Cuando la distancia del punto racional $ (-1, 0) $ hasta el origen es solamente 1, podemos usar la tangente de $ \varphi $ para despejar $ t $. Ahora todo lo que tenemos que hacer es expresar $ \varphi $ en materia de $ \theta $. Si conoce bien la geometría, notará que $ \varphi $ es un ángulo inscrito y, por lo tanto, es la mitad del ángulo $ \theta $. Una prueba corta de este teorema se muestra abajo (en el caso donde una cuerda es el diámetro, como en el diagrama):
 
-<p align='center'>
-  <img id='proof' width='50%' src='../../../en/posts/assets/pythagorean/proof.png' alt='Un ángulo inscrito siempre es la mitad de la medida del arco subtendido del círculo'/>
-  Dado algún arco $ \overset{\large\frown}{AB} $, el ángulo inscrito $ \angle V $ es parte de un triángulo más grande $ \triangle OVA $, como tanto $ V $ como $ A $ son equidistantes de $ O $ por la definición de un círculo.
-  Por lo tanto, $ \angle V + \angle A + \angle VOA = 180 \degree $.
-  Como $ \angle VOA = 180 \degree - \theta $ y $ \angle V = \angle A = \psi $, sabemos que $ 2 \psi + (180 \degree - \theta) = 180 \degree $.
-  Despejar $ \psi $ da $ \psi = \frac{\theta}{2} $.
-</p>
+{{< fig
+    id="proof"
+    src="assets/proof.png"
+    alt="Un ángulo inscrito siempre es la mitad de la medida del arco subtendido del círculo"
+    caption="Dado algún arco $ \overset{\large\frown}{AB} $, el ángulo inscrito $ \angle V $ es parte de un triángulo más grande $ \triangle OVA $, como tanto $ V $ como $ A $ son equidistantes de $ O $ por la definición de un círculo. Por lo tanto, $ \angle V + \angle A + \angle VOA = 180 \degree $. Como $ \angle VOA = 180 \degree - \theta $ y $ \angle V = \angle A = \psi $, sabemos que $ 2 \psi + (180 \degree - \theta) = 180 \degree $. Despejar $ \psi $ da $ \psi = \frac{\theta}{2} $."
+    >}}
 
 Por lo tanto:
 
@@ -478,77 +477,35 @@ plt.show()
 
 :confetti_ball: Por fin, ¡podemos ver los resultados del algoritmo! Al ejecutar todo el programa y capturar el resultado, se produce un gráfico final verdaderamente extraordinario, mostrando una estructura interesante de los triples pitagóricos:
 
-<p align='center'>
-  <em>Graficado con el estilo <a href='https://github.com/garrettj403/SciencePlots'>SciencePlots</a></em>
-  <img id='pythagorean' width='75%' src='../../../en/posts/assets/pythagorean/pythagorean.png' alt='Los triples pitagóricos se apiñan cerca del origen, expandiéndose radialmente en varios grupos'/>
-  Observe que porque asumimos que $ A $ era impar en todos estos triples, no graficamos duplicados (p. ej. $ (4, 3, 5) $ tras $ (3, 4, 5) $), que explica la falta de simetría sobre la línea $ y = x $.
-</p>
+*Graficado con el estilo [SciencePlots](https://github.com/garrettj403/SciencePlots)*
+
+{{< fig
+    id="pythagorean"
+    src="assets/pythagorean.png"
+    alt="Los triples pitagóricos se apiñan cerca del origen, expandiéndose radialmente en varios grupos"
+    caption="Observe que porque asumimos que $ A $ era impar en todos estos triples, no graficamos duplicados (p. ej. $ (4, 3, 5) $ tras $ (3, 4, 5) $), que explica la falta de simetría sobre la línea $ y = x $."
+    >}}
 
 Aquí hay una demostración interactiva donde se puede igualar el límite a valores distintos y ver los cambios:
 
 <div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
-  <iframe id="primitives" src="../../../en/posts/interactive/pythagorean/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="primitives" src="interactive/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 Para el gran final, aquí está el resultado de graficar los primeros $ 2000 $ triples pitagóricos primitivos (con `límite=100` y sin líneas para reducir el desbarajuste):
 
-<p align='center'>
-  <img id='pythagorean100' width='75%' src='../../../en/posts/assets/pythagorean/pythagorean100.png' alt='El patrón desde la última imagen es muy evidente; los triples se apiñan cerca del origen y, cuando las coordenadas aumentan en magnitud, parecen seguir caminos curvos que se extienden radialmente por el primer cuadrante del plano cartesiano.'/>
-  :sparkles: :shortcake: :sparkles:
-</p>
+{{< fig
+    id="pythagorean100"
+    src="assets/pythagorean100.png"
+    alt="El patrón desde la última imagen es muy evidente; los triples se apiñan cerca del origen y, cuando las coordenadas aumentan en magnitud, parecen seguir caminos curvos que se extienden radialmente por el primer cuadrante del plano cartesiano."
+    caption=":sparkles: :shortcake: :sparkles:"
+    >}}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script src="../../../en/assets/js/mantequilla.js"></script>
 <script>
-  // KaTeX
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customized options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-  });
-</script>
-<script>
-  // Dark embed toggle
-  let dark = false
-  let IDS = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
+  chromaInt()
+  katex()
+  let interactivesIDs = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
   let imgs = ['proof', 'pythagorean', 'pythagorean100', 'unitGeometric']
-  let imgSrc = ['../../../en/posts/assets/pythagorean/proof.png', '../../en/posts/assets/pythagorean/pythagorean.png', '../../../en/posts/assets/pythagorean/pythagorean100.png', '../../../en/posts/assets/pythagorean/unitGeometric.png']
-  let imgSrcInv = ['../../../en/posts/assets/pythagorean/proofInv.png', '../../../en/posts/assets/pythagorean/pythagoreanInv.png', '../../../en/posts/assets/pythagorean/pythagorean100Inv.png', '../../../en/posts/assets/pythagorean/unitGeometricInv.png']
-  let makeDark = () => {
-    for (let i = 0; i < IDS.length; i++) {
-      document.getElementById(IDS[i]).contentWindow.toggleDark()
-    }
-    for (let i = 0; i < imgs.length; i++) {
-      document.getElementById(imgs[i]).src = imgSrcInv[i]
-    }
-  }
-  let makeLight = () => {
-    for (let i = 0; i < IDS.length; i++) {
-      document.getElementById(IDS[i]).contentWindow.toggleLight()
-    }
-    for (let i = 0; i < imgs.length; i++) {
-      document.getElementById(imgs[i]).src = imgSrc[i]
-    }
-  }
-  let detectDark = () => {
-    let isDark = document.querySelector('html').classList.contains('dark')
-    if (isDark != dark) {
-      try {
-        if (isDark) makeDark()
-        else makeLight()
-        dark = isDark
-      } catch (e) {}
-    }
-    setTimeout(detectDark, 5000)
-  }; detectDark()
+  themes(interactivesIDs, imgs)
 </script>

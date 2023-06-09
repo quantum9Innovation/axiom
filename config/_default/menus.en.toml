@@ -25,12 +25,20 @@
   pageRef = "tags"
   weight = 30
 
+[[main]]
+name = "GitHub"
+url = "https://github.com/quantum9innovation"
+weight = 90
+[main.params]
+  icon = "github"
+  showName = false
+  target = "_blank"
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
-# [[footer]]
-#   name = "Tags"
-#   pageRef = "tags"
-#   weight = 10
+[[footer]]
+  name = "GitHub Source"
+  url = "https://github.com/quantum9innovation/axiom"
+  weight = 10

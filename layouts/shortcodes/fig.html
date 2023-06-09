@@ -1,0 +1,27 @@
+{{ if .Get "default" }}
+  {{ template "_internal/shortcodes/figure.html" . }}
+{{ else }}
+  {{ $url := urls.Parse (.Get "src") }}
+  {{ $altText := .Get "alt" }}
+  {{ $caption := .Get "caption" }}
+  {{ $href := .Get "href" }}
+  {{ $class := .Get "class" }}
+  <figure{{ with $class }} class="{{ . }}"{{ end }}>
+    {{ with $href }}<a href="{{ . }}">{{ end }}
+    <img
+      id="{{ .Get "id" }}"
+      class="mx-auto my-0 rounded-md fig"
+      alt="{{ $altText }}"
+      {{ if .Site.Params.enableImageLazyLoading | default true }}
+        loading="lazy"
+      {{ end }}
+      {{ if findRE "^https?" $url.Scheme }}
+        src="{{ $url.String }}"
+      {{ else }}
+          src="{{ $url.String }}"
+      {{ end }}
+    />
+    {{ with $href }}</a>{{ end }}
+    {{ with $caption }}<figcaption class="text-center">{{ . | markdownify }}</figcaption>{{ end }}
+  </figure>
+{{ end }}

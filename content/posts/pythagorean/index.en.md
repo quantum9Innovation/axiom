@@ -8,8 +8,6 @@ categories: ["Number Theory", "Algebraic Geometry", "Trigonometry"]
 tags: ["Fermat's Last Theorem", "Weierstrass substitution", "conic", "rational points", "Pythagorean theorem"]
 ---
 
-<link type='text/css' rel='stylesheet' href='../../en/assets/css/syntax.css'></style>
-
 {{< lead >}}
 How to find, generate, and visualize every single Pythagorean triple
 {{< /lead >}}
@@ -63,7 +61,7 @@ Use the slider below to adjust the value of $ n $.
 {{< /alert >}}
 
 <div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
-  <iframe id="fermat" src="../../en/posts/interactive/pythagorean/fermat.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="fermat" src="interactive/fermat.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 As we increase the value of $ n $, the curves resemble one of the two families of curves shown above, depending on whether $ n $ is even or odd.
@@ -115,7 +113,7 @@ In other words, conics are just algebraic curves (often called "algebraic variet
 Here's the graph of an arbitrary conic $ \mathcal{C} $: $ x^2 + y^2 + xy + x + y - 1 = 0 $:
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="ellipse" src="../../en/posts/interactive/pythagorean/ellipse.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="ellipse" src="interactive/ellipse.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 For the purposes of our problem, we'll assume that $ \mathcal{C} $ contains some rational point $ \mathcal{O} $ that we are aware of.
@@ -171,7 +169,7 @@ Move the blue point on the $ y $-axis anywhere across the screen to generate a n
 <br>
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="example" src="../../en/posts/interactive/pythagorean/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="example" src="interactive/example.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 Drawing the rational line $ y = -2x - 1 $ through $ \mathcal{O} $ intersects the ellipse again, yielding a second rational point $ \left( \frac{1}{3}, -\frac{5}{3} \right) $.
@@ -203,7 +201,7 @@ Our algorithm is as follows:
 4. Solve for the intersection $ \ell \cap \mathcal{C} $, which yields the desired corresponding rational point $ P $ on $ \mathcal{C} $
 
 <div style="position: relative; width: 75%; padding-top: 100%; margin: auto;">
-  <iframe id="projection" src="../../en/posts/interactive/pythagorean/projection.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="projection" src="interactive/projection.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 <p align='center'>
   $ f(t) $ is plotted in green; $ t $ determines the point $ Q $ (in purple) on $ f $; the line connecting $ Q $ and $ \mathcal{O} $ is in blue and intersects the conic at point $ P $
@@ -224,7 +222,7 @@ We *needed* to rationally parameterize the unit circle, yet instead we developed
 Now all we have to do is come up with an efficient way to apply what we've learned from the previous section to the unit circle.
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="circle" src="../../en/posts/interactive/pythagorean/circle.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="circle" src="interactive/circle.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 To rationally parameterize a conic, we need two things: some rational point $ \mathcal{O} $ and some rational line to project the conic onto.
@@ -270,7 +268,7 @@ Note that this is *not* the case if we use the familiar parametric equation of a
 While our result is obviously important algebraically, it can also be quite powerful to look at it from a geometric perspective.
 
 <div style="position: relative; width: 75%; padding-top: 75%; margin: auto;">
-  <iframe id="weierstrass" src="../../en/posts/interactive/pythagorean/weierstrass.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="weierstrass" src="interactive/weierstrass.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 <p align='center'>
@@ -290,22 +288,23 @@ More specifically, we're going to ask the question:
 In fact, we're going to forget about the condition $ t \in \mathbb{Q} $ that we imposed to ensure our parametrization produced *only* rational points and instead extend the domain of $ t $ to $ t \in \R $.
 To take a more geometric perspective, we are trying to find the value $ t $ shown in the diagram below:
 
-<p align='center'>
-  <img id='unitGeometric' width='50%' src='../../en/posts/assets/pythagorean/unitGeometric.png' alt='A point P on the circumference of the unit circle makes an angle theta with the origin. The point also makes an angle phi with the rational point O at negative one comma zero. The parameter t can be found by simply taking the tangent of phi.'/>
-</p>
+{{< fig
+    id="unitGeometric"
+    src="assets/unitGeometric.png"
+    alt="A point P on the circumference of the unit circle makes an angle theta with the origin. The point also makes an angle phi with the rational point O at negative one comma zero. The parameter t can be found by simply taking the tangent of phi."
+    >}}
 
 As the distance from our rational point $ (-1, 0) $ to the origin is just 1, we can use the tangent of $ \varphi $ to find $ t $.
 Now all we have to do is express $ \varphi $ in terms of $ \theta $.
 If you're familiar with geometry, you'll notice that $ \varphi $ is simply an inscribed angle and is therefore half the angle $ \theta $.
 A quick proof of this theorem is shown below (for the case where one chord is the diameter, as it is in our diagram):
 
-<p align='center'>
-  <img id='proof' width='50%' src='../../en/posts/assets/pythagorean/proof.png' alt='An inscribed angle is always half the measure of the subtended arc of a circle'/>
-  For some arc $ \overset{\large\frown}{AB} $, the inscribed angle $ \angle V $ is part of the larger isosceles triangle $ \triangle OVA $, since both $ V $ and $ A $ are equidistant from $ O $ by the definition of a circle.
-  Therefore $ \angle V + \angle A + \angle VOA = 180 \degree $.
-  Since $ \angle VOA = 180 \degree - \theta $ and $ \angle V = \angle A = \psi $, we have $ 2 \psi + (180 \degree - \theta) = 180 \degree $.
-  Solving for $ \psi $ gives $ \psi = \frac{\theta}{2} $.
-</p>
+{{< fig
+    id="proof"
+    src="assets/proof.png"
+    alt="An inscribed angle is always half the measure of the subtended arc of a circle"
+    caption="For some arc $ \overset{\large\frown}{AB} $, the inscribed angle $ \angle V $ is part of the larger isosceles triangle $ \triangle OVA $, since both $ V $ and $ A $ are equidistant from $ O $ by the definition of a circle. Therefore $ \angle V + \angle A + \angle VOA = 180 \degree $. Since $ \angle VOA = 180 \degree - \theta $ and $ \angle V = \angle A = \psi $, we have $ 2 \psi + (180 \degree - \theta) = 180 \degree $. Solving for $ \psi $ gives $ \psi = \frac{\theta}{2} $."
+    >}}
 
 Therefore:
 
@@ -634,77 +633,35 @@ plt.show()
 :confetti_ball: Finally, we can see the results of our algorithm!
 Running the full program and capturing the result produces a truly outstanding final plot, revealing an interesting structure to the Pythagorean triples:
 
-<p align='center'>
-  <em>Plotted with style <a href="https://github.com/garrettj403/SciencePlots">SciencePlots</a></em>
-  <img id='pythagorean' width='75%' src='../../en/posts/assets/pythagorean/pythagorean.png' alt='Pythagorean triples cluster near the origin, expanding radially in various groups'/>
-  Note that because we are assuming $ A $ to be odd in all these triples, we don't plot duplicates (e.g. $ (4, 3, 5) $ after $ (3, 4, 5) $), which explains the lack of symmetry over the line $ y = x $.
-</p>
+*Plotted with style [SciencePlots](https://github.com/garrettj403/SciencePlots)*
+
+{{< fig
+    id="pythagorean"
+    src="assets/pythagorean.png"
+    alt="Pythagorean triples cluster near the origin, expanding radially in various groups"
+    caption="Note that because we are assuming $ A $ to be odd in all these triples, we don't plot duplicates (e.g. $ (4, 3, 5) $ after $ (3, 4, 5) $), which explains the lack of symmetry over the line $ y = x $."
+    >}}
 
 Here's an interactive demo where you can set different limit values and see the results change:
 
 <div style="position: relative; width: 75%; padding-top: 85%; margin: auto;">
-  <iframe id="primitives" src="../../en/posts/interactive/pythagorean/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <iframe id="primitives" src="interactive/primitives.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
 For the grand finale, here's what plotting the first $ 2000 $ primitive Pythagorean triples looks like (with `limit=100` and no lines to reduce clutter):
 
-<p align='center'>
-  <img id='pythagorean100' width='75%' src='../../en/posts/assets/pythagorean/pythagorean100.png' alt='The pattern from last image is very much apparent; triples cluster near the origin and, as the coordinates increase in magnitude, they appear to follow certain curved paths extending radially across the first quadrant of the Cartesian plane.'/>
-  :sparkles: :shortcake: :sparkles:
-</p>
+{{< fig
+    id="pythagorean100"
+    src="assets/pythagorean100.png"
+    alt="The pattern from last image is very much apparent; triples cluster near the origin and, as the coordinates increase in magnitude, they appear to follow certain curved paths extending radially across the first quadrant of the Cartesian plane"
+    caption=":sparkles: :shortcake: :sparkles:"
+    >}}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script src="../../en/assets/js/mantequilla.js"></script>
 <script>
-  // KaTeX
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customized options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-  });
-</script>
-<script>
-  // Dark embed toggle
-  let dark = false
-  let IDS = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
+  chroma()
+  katex()
+  let interactivesIDs = ['circle', 'ellipse', 'example', 'fermat', 'primitives', 'projection', 'weierstrass']
   let imgs = ['proof', 'pythagorean', 'pythagorean100', 'unitGeometric']
-  let imgSrc = ['../../en/posts/assets/pythagorean/proof.png', '../../en/posts/assets/pythagorean/pythagorean.png', '../../en/posts/assets/pythagorean/pythagorean100.png', '../../en/posts/assets/pythagorean/unitGeometric.png']
-  let imgSrcInv = ['../../en/posts/assets/pythagorean/proofInv.png', '../../en/posts/assets/pythagorean/pythagoreanInv.png', '../../en/posts/assets/pythagorean/pythagorean100Inv.png', '../../en/posts/assets/pythagorean/unitGeometricInv.png']
-  let makeDark = () => {
-    for (let i = 0; i < IDS.length; i++) {
-      document.getElementById(IDS[i]).contentWindow.toggleDark()
-    }
-    for (let i = 0; i < imgs.length; i++) {
-      document.getElementById(imgs[i]).src = imgSrcInv[i]
-    }
-  }
-  let makeLight = () => {
-    for (let i = 0; i < IDS.length; i++) {
-      document.getElementById(IDS[i]).contentWindow.toggleLight()
-    }
-    for (let i = 0; i < imgs.length; i++) {
-      document.getElementById(imgs[i]).src = imgSrc[i]
-    }
-  }
-  let detectDark = () => {
-    let isDark = document.querySelector('html').classList.contains('dark')
-    if (isDark != dark) {
-      try {
-        if (isDark) makeDark()
-        else makeLight()
-        dark = isDark
-      } catch (e) {}
-    }
-    setTimeout(detectDark, 5000)
-  }; detectDark()
+  themes(interactivesIDs, imgs)
 </script>
