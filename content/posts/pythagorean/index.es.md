@@ -48,7 +48,7 @@ $$ x^n + y^n = 1 \space \textnormal{donde} \space x, y \in \mathbb{Q} $$
 
 Por ahora, solamente consideramos los casos donde $ n > 2 $. Graficar la ecuación para varios valores de $ n $ pone de manifiesto dos familias de curvas: una familia donde $ n $ es par y otro donde $ n $ es impar.
 
-{{< alert >}}
+{{< alert "circle-info" >}}
 Este gráfico, como todos los demás en este artículo, es interactivo. Arrastre el ratón para mover el gráfico y pellizque para hacer zoom. Use el control deslizante de abajo para ajustar el valor de $ n $.
 {{< /alert >}}
 
@@ -118,7 +118,7 @@ Como apuntado antes, lo que esencialmente estamos haciendo cuando sustituimos un
 
 Aquí está un ejemplo:
 
-{{< alert >}}
+{{< alert "circle-info" >}}
 ¡Puntos con un círculo translúcido por sus alrededores pueden moverse! Mueva el punto azul en el eje $ y $ a cualquier lugar por la pantalla para generar un nuevo punto racional en la elipse.
 {{< /alert >}}
 

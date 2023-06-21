@@ -54,7 +54,7 @@ $$ x^n + y^n = 1 \space \textnormal{where} \space x, y \in \mathbb{Q} $$
 For now, we'll stick to the cases where $ n > 2 $.
 Graphing the equation for various values of $ n $ reveals two families of similar-looking curves: one where $ n $ is even and one where $ n $ is odd.
 
-{{< alert >}}
+{{< alert "circle-info" >}}
 This graph, like every other in this article, is interactive.
 Drag to translate the graph and scroll or pinch to zoom.
 Use the slider below to adjust the value of $ n $.
@@ -161,7 +161,7 @@ Therefore, our second intersection point has a rational $ x $-coordinate and a r
 
 Here's an example:
 
-{{< alert >}}
+{{< alert "circle-info" >}}
 Points with a translucent circle around them can be moved!
 Move the blue point on the $ y $-axis anywhere across the screen to generate a new rational point on the ellipse.
 {{< /alert >}}
